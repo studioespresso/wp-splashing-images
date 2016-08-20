@@ -100,4 +100,8 @@ class Wp_Splashing_Admin {
 
 	}
 
+	public function wp_splashing_add_menu() {
+		add_submenu_page( 'upload.php', 'Splashing images', 'Splashing images', 'upload_files', 'wp-splashing', 'wp_splashing_settings_page');
+	}
+
 }
