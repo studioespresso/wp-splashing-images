@@ -88,7 +88,6 @@ class Wp_Splashing_Admin {
 										<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing'); ?></p>
 										<h3><?php _e('Unsplash License ', 'wp-splashing'); ?></h3>
 										<p><?php _e('All photos published on Unsplash are licensed under Creative Commons Zero which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.', 'wp-splashing'); ?></p>
-
 									</<div>
 								</div>
 							</div>
@@ -100,7 +99,7 @@ class Wp_Splashing_Admin {
 	}
 
 	public function wp_splashing_add_menu() {
-		add_submenu_page( 'upload.php', 'Splashing images', 'Splashing images', 'upload_files', 'wp-splashing', array( $this, 'wp_splashing_settings_page' ));
+		add_submenu_page( 'upload.php', 'Splashing Images', 'Splashing Images', 'upload_files', 'wp-splashing', array( $this, 'wp_splashing_settings_page' ));
 	}
 
 }
