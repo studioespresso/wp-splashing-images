@@ -60,19 +60,6 @@ class Wp_Splashing_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Splashing_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Splashing_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-splashing-admin.css', array(), $this->version, 'all' );
 
 	}
@@ -83,25 +70,27 @@ class Wp_Splashing_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Wp_Splashing_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Wp_Splashing_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-splashing-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
+	public function wp_splashing_settings_page() { ?>
+			<div class="wrap">
+				<h1><?php _e('Splashing Images', 'wp-splashing')?></h1>
+				<div id="poststuff">
+					<div id="post-body" class="metabox-holder columns-2">
+						<div class="metabox-holder columns-2">
+							<div id="post-body-content" style="position: relative;" class="postbox-container"></div>
+							<div id="postbox-container-1" class="postbox-container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php
+	}
+
 	public function wp_splashing_add_menu() {
-		add_submenu_page( 'upload.php', 'Splashing images', 'Splashing images', 'upload_files', 'wp-splashing', 'wp_splashing_settings_page');
+		add_submenu_page( 'upload.php', 'Splashing images', 'Splashing images', 'upload_files', 'wp-splashing', array( $this, 'wp_splashing_settings_page' ));
 	}
 
 }
