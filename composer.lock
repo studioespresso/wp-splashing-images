@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "crewlabs/unsplash",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unsplash/unsplash-php.git",
-                "reference": "2f0679f1b2411c9741c5c07796e54ff373071af7"
+                "reference": "a0bcb0ba527848cd0b20ed363facc32f008dd080"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unsplash/unsplash-php/zipball/2f0679f1b2411c9741c5c07796e54ff373071af7",
-                "reference": "2f0679f1b2411c9741c5c07796e54ff373071af7",
+                "url": "https://api.github.com/repos/unsplash/unsplash-php/zipball/a0bcb0ba527848cd0b20ed363facc32f008dd080",
+                "reference": "a0bcb0ba527848cd0b20ed363facc32f008dd080",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 }
             ],
             "description": "Wrapper to access information from Unsplash API more easily",
-            "time": "2016-08-02 21:24:16"
+            "time": "2016-08-21 18:37:15"
         },
         {
             "name": "guzzlehttp/guzzle",
