@@ -52,6 +52,8 @@ class Wp_Splashing_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->unsplash = new Wp_Splashing_Unsplash($this->plugin_name, $this->version);
+
 	}
 
 	/**
@@ -80,7 +82,8 @@ class Wp_Splashing_Admin {
 				<div id="poststuff">
 					<div id="post-body" class="metabox-holder columns-2">
 						<div class="metabox-holder columns-2">
-							<div id="post-body-content" style="position: relative;" class="postbox-container"></div>
+							<div id="post-body-content" style="position: relative;" class="postbox-container">
+							</div>
 							<div id="postbox-container-1" class="postbox-container">
 								<div class="postbox">
 									<h2 class="hndle"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>

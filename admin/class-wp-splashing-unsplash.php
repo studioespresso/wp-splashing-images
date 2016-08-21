@@ -48,7 +48,20 @@ class Wp_Splashing_Unsplash {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'vendor/autoload.php';
 
 	}
+
+	public function setup() {
+	    return Crew\Unsplash\HttpClient::init(array(
+	        'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4'
+        ));
+	}
+
+	public function getLastFeatured($count = 25) {
+	    $this->setup();
+        $images = Crew\Unsplash\Photo::curated(1, $count);
+        var_dump($images);
+    }
 
 }
