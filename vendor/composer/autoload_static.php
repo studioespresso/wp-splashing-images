@@ -10,6 +10,7 @@ class ComposerStaticInit7cfe1214947447a6f0cf751d165ecee3
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'efd893c01f001f6c8c594ea00713c08c' => __DIR__ . '/..' . '/mmucklo/krumo/class.krumo.php',
     );
 
     public static $prefixLengthsPsr4 = array (
