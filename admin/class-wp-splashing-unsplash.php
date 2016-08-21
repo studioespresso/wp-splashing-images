@@ -59,9 +59,14 @@ class Wp_Splashing_Unsplash {
 	}
 
 	public function getLastFeatured($count = 25) {
-	    $this->setup();
-        $images = Crew\Unsplash\Photo::curated(1, $count);
-        var_dump($images);
+	    if(get_transient('splashing_featured')) {
+	        return unserialize(get_transient('splashing_featured'));
+        } else {
+            $this->setup();
+            $images = Crew\Unsplash\Photo::curated(1, $count);
+            set_transient('splashing_featured', $images, 12 * HOUR_IN_SECONDS);
+            return $images;
+        }
     }
 
 }

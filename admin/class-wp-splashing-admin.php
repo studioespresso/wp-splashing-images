@@ -83,6 +83,13 @@ class Wp_Splashing_Admin {
 					<div id="post-body" class="metabox-holder columns-2">
 						<div class="metabox-holder columns-2">
 							<div id="post-body-content" style="position: relative;" class="postbox-container">
+								<?php
+                                $images = $this->unsplash->getLastFeatured();
+                                foreach($images as $image) {
+                                    echo '<img src="' . $image->urls['thumb'] .'">';
+                                }
+
+                                ?>
 							</div>
 							<div id="postbox-container-1" class="postbox-container">
 								<div class="postbox">
