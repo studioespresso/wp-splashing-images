@@ -159,6 +159,8 @@ class Wp_Splashing {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wp_splashing_add_menu' );
+		$this->loader->add_action( 'wp_ajax_wp_splashing_save_image', $plugin_admin, 'wp_splashing_save_image' );
+		$this->loader->add_action( 'wp_ajax_nopriv_wp_splashing_save_image', $plugin_admin, 'wp_splashing_save_image' );
 
 	}
 
