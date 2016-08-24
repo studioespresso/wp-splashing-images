@@ -73,6 +73,10 @@ class Wp_Splashing_Admin {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-splashing-admin.js', array( 'jquery' ), $this->version, false );
+		wp_localize_script( $this->plugin_name, 'wp_splashing_settings', array(
+	        	'ajax_admin_url' => admin_url( 'admin-ajax.php' ),
+				'wp_splashing_admin_nonce' => wp_create_nonce( 'wp_splashing_nonce' )
+			));
 
 	}
 
@@ -82,11 +86,11 @@ class Wp_Splashing_Admin {
 				<div id="poststuff">
 					<div id="post-body" class="metabox-holder columns-2">
 						<div class="metabox-holder columns-2">
-							<div id="post-body-content" style="position: relative;" class="postbox-container">
+							<div id="splashing_images" style="position: relative;" class="postbox-container">
 								<?php
                                 $images = $this->unsplash->getLastFeatured();
                                 foreach($images as $image) {
-                                    echo '<img src="' . $image->urls['thumb'] .'">';
+                                    echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img src="' . $image->urls['thumb'] .'"></a>';
                                 }
 
                                 ?>
@@ -106,6 +110,41 @@ class Wp_Splashing_Admin {
 				</div>
 			</div>
 			<?php
+	}
+
+	public function wp_splashing_save_image() {
+
+	   	$nonce = $_POST["nonce"];
+   		// Check our nonce, if they don't match then bounce!
+   		if (! wp_verify_nonce( $nonce, 'wp_splashing_nonce' )) {
+	   		die('Get Bounced!');
+   		}
+
+   		$dir = plugin_dir_path( dirname( __FILE__ ) ) . 'temp/';
+      	if(!is_dir($dir)){
+        	mkdir($dir);
+      	}
+
+		if (!is_writable(plugin_dir_path( dirname( __FILE__ ) ) . 'temp/')) {
+		  echo __('Unable to save image, check your server permissions.', 'wp-splashing');
+		}
+
+		$payload = Trim(stripslashes($_POST['image']));
+
+      	$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, $payload);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		$picture = curl_exec($ch);
+		curl_close($ch);
+
+		$tmpImage = 'photo-' . rand() . '.jpg';
+		$tmp = $dir . $tmpImage;
+
+      	$saved_file = file_put_contents($tmp, $picture);
 	}
 
 	public function wp_splashing_add_menu() {
