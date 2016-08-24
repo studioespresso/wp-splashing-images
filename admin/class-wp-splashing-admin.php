@@ -88,9 +88,9 @@ class Wp_Splashing_Admin {
 						<div class="metabox-holder columns-2">
 							<div id="splashing_images" style="position: relative;" class="postbox-container">
 								<?php
-                                $images = $this->unsplash->getLastFeatured();
+                                $images = $this->unsplash->getLastFeatured(50);
                                 foreach($images as $image) {
-                                    echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img src="' . $image->urls['thumb'] .'"></a>';
+                                    echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
                                 }
 
                                 ?>

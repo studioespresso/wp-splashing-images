@@ -58,7 +58,7 @@ class Wp_Splashing_Unsplash {
         ));
 	}
 
-	public function getLastFeatured($count = 25) {
+	public function getLastFeatured($count = 10) {
 	    if(get_transient('splashing_featured')) {
 	        return unserialize(get_transient('splashing_featured'));
         } else {
