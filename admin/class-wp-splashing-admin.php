@@ -145,6 +145,40 @@ class Wp_Splashing_Admin {
 		$tmp = $dir . $tmpImage;
 
       	$saved_file = file_put_contents($tmp, $picture);
+
+      	$json = json_encode( 
+			array(
+				'error' => true,
+				'msg' => __('Unable to save image, check your server permissions.', USP_NAME)
+			)
+		);
+
+		// Was the temporary image able to be saved?
+		if ($saved_file) {   
+			$uploadPath = plugins_url('temp/', dirname(__FILE__));
+			$file =  $uploadPath . $tmpImage;
+			// Upload generated file to media library using media_sideload_image()
+	      	$splashingImage = media_sideload_image( $file , null, 'blaa' );
+
+			// Success JSON      
+			//echo __('File successfully uploaded to media library.', USP_NAME); 
+			$json = json_encode( 
+				array(
+					'error' => false,
+					'msg' => __('File successfully uploaded to media library.', USP_NAME)
+				)
+			);
+
+			// Delete the file we just uplaoded from the tmp dir.
+			if(file_exists($tmp_path.''.$tmp)){
+				unlink($tmp_path.''.$tmp);
+			}else{
+				echo __('Nothing to delete, file does not exist', USP_NAME);
+			}           
+		}
+
+		echo $json;
+		die();
 	}
 
 	public function wp_splashing_add_menu() {
