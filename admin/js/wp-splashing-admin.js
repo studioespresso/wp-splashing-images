@@ -28,6 +28,7 @@ jQuery(document).ready(function($) {
                 });
             };
         });
+    $('#splashing-search').submit(function(e){
         console.log(settings.ajax_admin_url);
         var el = $(this);
         if(!el.hasClass('disabled')) {

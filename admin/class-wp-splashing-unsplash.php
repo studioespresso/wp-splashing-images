@@ -69,4 +69,16 @@ class Wp_Splashing_Unsplash {
         }
     }
 
+    public function getCategories() {
+    	$this->setup();
+    	$categories = Crew\Unsplash\Category::all(1, 200);
+    	return $categories;
+    }
+
+    public function search($string) {
+    	$this->setup();
+    	$search = Crew\Unsplash\Photo::search($string);
+    	return $search;
+    }
+
 }
