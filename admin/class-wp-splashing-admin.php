@@ -72,6 +72,8 @@ class Wp_Splashing_Admin {
      * @since    1.0.0
      */
     public function enqueue_scripts() {
+        wp_enqueue_script( $this->plugin_name . '-spin', plugin_dir_url( __FILE__ ) . 'js/wp-splashing-loadingoverlay.js', array( 'jquery' ), $this->version, false );
+
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-splashing-admin.js', array( 'jquery' ), $this->version, false );
         wp_localize_script( $this->plugin_name, 'wp_splashing_settings', array(
                 'ajax_admin_url' => admin_url( 'admin-ajax.php' ),
