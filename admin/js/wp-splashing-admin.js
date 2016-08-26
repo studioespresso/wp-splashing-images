@@ -33,6 +33,11 @@ jQuery(document).ready(function($) {
                 success: function(response) {                                               
                     console.log(response); 
                     image.LoadingOverlay("hide");
+                    var checkmark = '<div class="checkmark-circle"><div class="background"></div><div class="checkmark draw"></div></div>';
+                    element.append(checkmark);
+                    setTimeout(function() {
+                        element.children('div.checkmark-circle').fadeOut(900);
+                    }, 700);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
