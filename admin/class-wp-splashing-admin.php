@@ -87,13 +87,27 @@ class Wp_Splashing_Admin {
 					<div id="post-body" class="metabox-holder columns-2">
 						<div class="metabox-holder columns-2">
 							<div id="splashing_images" style="position: relative;" class="postbox-container">
-								<?php
-                                $images = $this->unsplash->getLastFeatured(50);
-                                foreach($images as $image) {
-                                    echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
-                                }
-
-                                ?>
+							<div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
+									<a href="/wp-admin/upload.php?mode=list" class="view-list">
+										<span class="screen-reader-text">List View</span>
+									</a>
+									<a href="/wp-admin/upload.php?mode=grid" class="view-grid current">
+										<span class="screen-reader-text">Grid View</span>
+									</a>
+								</div>
+								<form id="splashing-search" method="get">
+									<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
+									<input type="search" id="post-search-input" name="s" value="">
+									<input type="submit" id="search-submit" class="button" value="Search Unsplash">
+								</form>	
+								</div>
+							</div>
+								<?php 
+                    $images = $this->unsplash->getLastFeatured(50);
+                    foreach($images as $image) {
+                        echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
+                    }
+                    ?>
 							</div>
 							<div id="postbox-container-1" class="postbox-container">
 								<div class="postbox">
@@ -110,6 +124,11 @@ class Wp_Splashing_Admin {
 				</div>
 			</div>
 			<?php
+	}
+
+	public function wp_splashing_search() {
+		return var_dump($_POST);
+		
 	}
 
 	public function wp_splashing_save_image() {
@@ -146,7 +165,7 @@ class Wp_Splashing_Admin {
 
       	$saved_file = file_put_contents($tmp, $picture);
 
-      	$json = json_encode( 
+      	$json = json_encode(
 			array(
 				'error' => true,
 				'msg' => __('Unable to save image, check your server permissions.', USP_NAME)
@@ -154,15 +173,15 @@ class Wp_Splashing_Admin {
 		);
 
 		// Was the temporary image able to be saved?
-		if ($saved_file) {   
+		if ($saved_file) {
 			$uploadPath = plugins_url('temp/', dirname(__FILE__));
 			$file =  $uploadPath . $tmpImage;
 			// Upload generated file to media library using media_sideload_image()
 	      	$splashingImage = media_sideload_image( $file , null, 'blaa' );
 
-			// Success JSON      
-			//echo __('File successfully uploaded to media library.', USP_NAME); 
-			$json = json_encode( 
+			// Success JSON
+			//echo __('File successfully uploaded to media library.', USP_NAME);
+			$json = json_encode(
 				array(
 					'error' => false,
 					'msg' => __('File successfully uploaded to media library.', USP_NAME)
@@ -174,7 +193,7 @@ class Wp_Splashing_Admin {
 				unlink($tmp_path.''.$tmp);
 			}else{
 				echo __('Nothing to delete, file does not exist', USP_NAME);
-			}           
+			}
 		}
 
 		echo $json;
