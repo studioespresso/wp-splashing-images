@@ -33,11 +33,11 @@ jQuery(document).ready(function($) {
                 success: function(response) {                                               
                     console.log(response); 
                     image.LoadingOverlay("hide");
-                    var checkmark = '<div class="checkmark-circle"><div class="background"></div><div class="checkmark draw"></div></div>';
+                    var checkmark = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>';
                     element.append(checkmark);
                     setTimeout(function() {
-                        element.children('div.checkmark-circle').fadeOut(900);
-                    }, 700);
+                        element.children('svg.checkmark').fadeOut(1400);
+                    }, 1400);
                 },
                 error: function(xhr, status, error) {
                     console.log(error);

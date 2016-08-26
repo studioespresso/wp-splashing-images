@@ -104,6 +104,7 @@ class Wp_Splashing_Admin {
                                 </form> 
                                 </div>
                             </div>
+
                                 <?php 
                                 $images = $this->unsplash->getLastFeatured(50);
                                 foreach($images as $image) {
@@ -111,6 +112,7 @@ class Wp_Splashing_Admin {
                                 } ?>
                             </div>
                             <div id="postbox-container-1" class="postbox-container">
+
                                 <div class="postbox">
                                     <h2 class="hndle"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>
                                     <div class="inside">
