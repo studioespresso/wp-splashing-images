@@ -3,31 +3,31 @@ jQuery(document).ready(function($) {
     var settings = wp_splashing_settings;
 
     $('a.upload').click(function(e){
-         var el = $(this);                           ;
+         var el = $(this);
             // If not saving, then proceed
-            if(!el.hasClass('saving')){
-                el.addClass('saving');
-                e.preventDefault();
-                var image = $(this).data('source')
-                $.ajax({
-                    type: 'POST',
-                    url: settings.ajax_admin_url,
-                    dataType: 'JSON',
-                    data: {
-                        action: 'wp_splashing_save_image',
-                        image: image, 
-                        nonce: settings.wp_splashing_admin_nonce,
-                    },
+        if(!el.hasClass('saving')){
+            el.addClass('saving');
+            e.preventDefault();
+            var image = $(this).data('source')
+            $.ajax({
+                type: 'POST',
+                url: settings.ajax_admin_url,
+                dataType: 'JSON',
+                data: {
+                    action: 'wp_splashing_save_image',
+                    image: image, 
+                    nonce: settings.wp_splashing_admin_nonce,
+                },
 
-                    success: function(response) {                                               
-                        console.log(response); 
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-                });
-            };
-        });
+                success: function(response) {                                               
+                    console.log(response); 
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        };
+    });
     $('#splashing-search').submit(function(e){
         console.log(settings.ajax_admin_url);
         var el = $(this);
@@ -46,6 +46,5 @@ jQuery(document).ready(function($) {
                 }
             });
         };
-
     });
 });
