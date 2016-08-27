@@ -87,19 +87,21 @@ class Wp_Splashing_Admin {
     }
 
     public function wp_splashing_search() {
+
+        $this->checkNonce($_POST["nonce"]);
+        
         $string = sanitize_text_field($_POST['data']);
         $data = $this->unsplash->search($string);
-        var_dump($data);
-        
+        foreach($data as $image) {
+            $images[] = $image;
+            break;
+        }
+        echo json_encode($images);
     }
 
     public function wp_splashing_save_image() {
 
-        $nonce = $_POST["nonce"];
-        // Check our nonce, if they don't match then bounce!
-        if (! wp_verify_nonce( $nonce, 'wp_splashing_nonce' )) {
-            die('Get Bounced!');
-        }
+        $this->checkNonce($_POST["nonce"]);
 
         $dir = plugin_dir_path( dirname( __FILE__ ) ) . 'temp/';
         if(!is_dir($dir)){
@@ -164,6 +166,13 @@ class Wp_Splashing_Admin {
 
     public function wp_splashing_add_menu() {
         add_submenu_page( 'upload.php', 'Splashing Images', 'Splashing Images', 'upload_files', 'wp-splashing', array( $this, 'wp_splashing_settings_page' ));
+    }
+
+    public function checkNonce($nonce) {
+        // Check our nonce, if they don't match then bounce!
+        if (! wp_verify_nonce( $nonce, 'wp_splashing_nonce' )) {
+            die('Get Bounced!');
+        }
     }
 
 }
