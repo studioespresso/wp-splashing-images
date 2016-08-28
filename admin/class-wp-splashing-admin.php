@@ -89,14 +89,14 @@ class Wp_Splashing_Admin {
     public function wp_splashing_search() {
 
         $this->checkNonce($_POST["nonce"]);
-        
         $string = sanitize_text_field($_POST['data']);
         $data = $this->unsplash->search($string);
-        foreach($data as $image) {
-            $images[] = $image;
-            break;
+        foreach($data as $index => $entry) {
+            $images[$index]['thumb'] = $entry->urls['thumb'];
+            $images[$index]['download'] = $entry->links['download'];
         }
         echo json_encode($images);
+        die();
     }
 
     public function wp_splashing_save_image() {

@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
                     var checkmark = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>';
                     element.append(checkmark);
                     setTimeout(function() {
-                        element.children('svg.checkmark').fadeOut(1400);
+                        element.children('svg.checkmark').remove();
                     }, 1400);
                 },
                 error: function(xhr, status, error) {
@@ -51,15 +51,31 @@ jQuery(document).ready(function($) {
         if(!element.hasClass('disabled')) {
             element.addClass('disabled');
             e.preventDefault();
-            var data = $('#splashing-search input').val();
+            var query = $('#splashing-search input').val();
             $.ajax({
                 type: 'POST',
                 url: settings.ajax_admin_url,
-                dataType: 'JSON',
                 data: {
                     action: 'wp_splashing_search',
-                    data: data, 
+                    data: query, 
                     nonce: settings.wp_splashing_admin_nonce,
+                },
+                beforeSend: function() {
+                    console.log('Searching...');
+                },
+                success: function(data) {  
+                    var images = jQuery.parseJSON(data);
+
+                    var content = $('#splashing-images');
+                    content.children('a').fadeOut(1400);
+                    $.each(images, function() {
+                         console.log(this.thumb);
+                         content.append('<a href="" class="upload" data-source="'+this.download+'"><img class="splashing-thumbnail" src="'+this.thumb+'"></a>').fadeIn(900);
+                    });
+
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
                 }
             });
         };
