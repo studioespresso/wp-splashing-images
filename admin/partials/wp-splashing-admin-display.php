@@ -19,27 +19,28 @@
         <div id="post-body" class="metabox-holder columns-2">
             <div class="metabox-holder columns-2">
                 <div id="splashing_images" style="position: relative;" class="postbox-container">
-                <div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
-                        <a href="/wp-admin/upload.php?mode=list" class="view-list">
-                            <span class="screen-reader-text">List View</span>
-                        </a>
-                        <a href="/wp-admin/upload.php?mode=grid" class="view-grid current">
-                            <span class="screen-reader-text">Grid View</span>
-                        </a>
-                    </div>
-                    <form id="splashing-search" method="get">
-                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-                        <input type="search" id="post-search-input" name="s" value="">
-                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
-                    </form> 
-                    </div>
-                </div>
-
-                    <?php 
-                    $images = $this->unsplash->getLastFeatured(50);
-                    foreach($images as $image) {
-                         echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
-                    } ?>
+	                <div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
+	                        <a href="/wp-admin/upload.php?mode=list" class="view-list">
+	                            <span class="screen-reader-text">List View</span>
+	                        </a>
+	                        <a href="/wp-admin/upload.php?mode=grid" class="view-grid current">
+	                            <span class="screen-reader-text">Grid View</span>
+	                        </a>
+	                    </div>
+	                    <form id="splashing-search" method="get">
+	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
+	                        <input type="search" id="post-search-input" name="s" value="">
+	                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
+	                    </form> 
+	                    </div>
+	                </div>
+	                <div id="splashing-images">
+	                    <?php 
+	                    $images = $this->unsplash->getLastFeatured(50);
+	                    foreach($images as $image) {
+	                         echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
+	                    } ?>
+	                </div>
                 </div>
                 <div id="postbox-container-1" class="postbox-container">
 
