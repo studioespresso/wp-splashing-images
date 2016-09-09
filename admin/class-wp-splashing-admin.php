@@ -87,9 +87,8 @@ class Wp_Splashing_Admin {
     }
 
     public function wp_splashing_search() {
-
-        $this->checkNonce($_POST["nonce"]);
-        $string = sanitize_text_field($_POST['data']);
+        $this->checkNonce($_GET["nonce"]);
+        $string = sanitize_text_field($_GET['search']);
         $data = $this->unsplash->search($string);
         foreach($data as $index => $entry) {
             $images[$index]['thumb'] = $entry->urls['thumb'];

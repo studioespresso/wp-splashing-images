@@ -77,7 +77,7 @@ class Wp_Splashing_Unsplash {
 
     public function search($string, $orientation = 'landscape') {
     	$this->setup();
-    	$search = Crew\Unsplash\Photo::search($string, null, $orientation);
+    	$search = Crew\Unsplash\Photo::search($string, null, 1, 25, $orientation);
     	return $search;
     }
 

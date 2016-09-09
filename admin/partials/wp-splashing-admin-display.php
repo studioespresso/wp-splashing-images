@@ -29,8 +29,9 @@
 	                    </div>
 	                    <form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-	                        <input type="search" id="post-search-input" name="s" value="">
+	                        <input type="search" id="post-search-input" name="search" value="">
 	                        <input type="hidden" name="action" value="wp_splashing_search">
+	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
 	                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
 	                    </form> 
 	                    </div>
