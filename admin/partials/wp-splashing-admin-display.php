@@ -37,15 +37,21 @@
 	                    </div>
 	                </div>
 	                <div id="splashing-images">
-	                    <?php 
-	                    $images = $this->unsplash->getLastFeatured(50);
-	                    foreach($images as $image) {
-	                         echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
+	                	<?php 
+	                	if(isset($_GET['search'])) {
+	                		$images = $this->unsplash->search($_GET['search']);
+	                	} else {
+		                    $images = $this->unsplash->getLastFeatured(50);
+	                	}  
+
+	         			if(isset($images)) {
+	                    	foreach($images as $image) {
+	                        	 echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
+	                    	} 
 	                    } ?>
 	                </div>
                 </div>
                 <div id="postbox-container-1" class="postbox-container">
-
                     <div class="postbox">
                         <h2 class="hndle"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>
                         <div class="inside">

@@ -89,13 +89,7 @@ class Wp_Splashing_Admin {
     public function wp_splashing_search() {
         $this->checkNonce($_GET["nonce"]);
         $string = sanitize_text_field($_GET['search']);
-        $data = $this->unsplash->search($string);
-        foreach($data as $index => $entry) {
-            $images[$index]['thumb'] = $entry->urls['thumb'];
-            $images[$index]['download'] = $entry->links['download'];
-        }
-        echo json_encode($images);
-        die();
+        wp_redirect( '/wp-admin/upload.php?page=wp-splashing&search=' . $string , 302 );
     }
 
     public function wp_splashing_save_image() {

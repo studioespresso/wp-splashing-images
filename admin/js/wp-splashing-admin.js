@@ -45,39 +45,4 @@ jQuery(document).ready(function($) {
             });
         };
     });
-    $('#splashing-search').submit(function(e){
-        console.log(settings.ajax_admin_url);
-        var element = $(this);
-        if(!element.hasClass('disabled')) {
-            element.addClass('disabled');
-            e.preventDefault();
-            var query = $('#splashing-search input').val();
-            $.ajax({
-                type: 'POST',
-                url: settings.ajax_admin_url,
-                data: {
-                    action: 'wp_splashing_search',
-                    data: query, 
-                    nonce: settings.wp_splashing_admin_nonce,
-                },
-                beforeSend: function() {
-                    console.log('Searching...');
-                },
-                success: function(data) {  
-                    var images = jQuery.parseJSON(data);
-
-                    var content = $('#splashing-images');
-                    content.children('a').fadeOut(1400);
-                    $.each(images, function() {
-                         console.log(this.thumb);
-                         content.append('<a href="" class="upload" data-source="'+this.download+'"><img class="splashing-thumbnail" src="'+this.thumb+'"></a>').fadeIn(900);
-                    });
-
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
-        };
-    });
 });
