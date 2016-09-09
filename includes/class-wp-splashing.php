@@ -161,8 +161,8 @@ class Wp_Splashing {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'wp_splashing_add_menu' );
 		$this->loader->add_action( 'wp_ajax_wp_splashing_save_image', $plugin_admin, 'wp_splashing_save_image' );
 		$this->loader->add_action( 'wp_ajax_nopriv_wp_splashing_save_image', $plugin_admin, 'wp_splashing_save_image' );
-		$this->loader->add_action( 'wp_ajax_wp_splashing_search', $plugin_admin, 'wp_splashing_search' );
-		$this->loader->add_action( 'wp_ajax_nopriv_wp_splashing_search', $plugin_admin, 'wp_splashing_save_image' );
+		$this->loader->add_action( 'admin_post_wp_splashing_search', $plugin_admin, 'wp_splashing_search' );
+		$this->loader->add_action( 'admin_post_nopriv_wp_splashing_search', $plugin_admin, 'wp_splashing_search' );
 
 	}
 
