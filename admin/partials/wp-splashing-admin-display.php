@@ -17,7 +17,6 @@
     <h1><?php _e('Splashing Images', 'wp-splashing')?></h1>
     <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
-            <div class="metabox-holder columns-2">
                 <div id="splashing_images" style="position: relative;" class="postbox-container">
 	                <div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
 	                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=list" class="view-list">
@@ -31,9 +30,9 @@
 	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
 	                        <input type="search" id="post-search-input" name="search" value="">
 	                        <select id="orientation" name="orientation">
-	                        	<option value="">Any</option>
-	                        	<option value="landscape">Landscape</option>
-	                        	<option value="portrait">Portrait</option>
+	                        	<option value=""><?php _e('Any orientation', 'wp-splashing'); ?></option>
+	                        	<option value="landscape"><?php _e('Landscape', 'wp-splashing'); ?></option>
+	                        	<option value="portrait"><?php _e('Portrait', 'wp-splashing'); ?></option>
 	                        </select>
 	                        <input type="hidden" name="action" value="wp_splashing_search">
 	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
@@ -66,7 +65,6 @@
                         </<div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
