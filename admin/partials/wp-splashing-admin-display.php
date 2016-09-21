@@ -30,9 +30,9 @@
 	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
 	                        <input type="search" id="post-search-input" name="search" value="">
 	                        <select id="orientation" name="orientation">
-	                        	<option value=""><?php _e('Any orientation', 'wp-splashing'); ?></option>
-	                        	<option value="landscape"><?php _e('Landscape', 'wp-splashing'); ?></option>
+								<option value="landscape"><?php _e('Landscape', 'wp-splashing'); ?></option>
 	                        	<option value="portrait"><?php _e('Portrait', 'wp-splashing'); ?></option>
+								<option value="all"><?php _e('Any orientation', 'wp-splashing'); ?></option>
 	                        </select>
 	                        <input type="hidden" name="action" value="wp_splashing_search">
 	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
