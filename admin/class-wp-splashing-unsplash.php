@@ -74,10 +74,11 @@ class Wp_Splashing_Unsplash {
     	$categories = Crew\Unsplash\Category::all(1, 200);
     	return $categories;
     }
-
-    public function search($string, $orientation = 'landscape') {
+    // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
+    public function search($string, $page = 1) {
     	$this->setup();
-    	$search = Crew\Unsplash\Photo::search($string, null, 1, 25, $orientation);
+    	$search = Crew\Unsplash\Search::photos($string, $page);
+        var_dump($search); exit;
     	return $search;
     }
 
