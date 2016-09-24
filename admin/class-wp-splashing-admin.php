@@ -125,7 +125,7 @@ class Wp_Splashing_Admin {
         $json = json_encode(
             array(
                 'error' => true,
-                'msg' => __('Unable to save image, check your server permissions.', USP_NAME)
+                'msg' => __('Unable to save image, check your server permissions.', 'wp-splashing')
             )
         );
 
@@ -141,7 +141,7 @@ class Wp_Splashing_Admin {
             $json = json_encode(
                 array(
                     'error' => false,
-                    'msg' => __('File successfully uploaded to media library.', USP_NAME)
+                    'msg' => __('File successfully uploaded to media library.', 'wp-splashing')
                 )
             );
 
@@ -149,7 +149,7 @@ class Wp_Splashing_Admin {
             if(file_exists($dir.''.$tmpImage)){
                 unlink($dir.''.$tmpImage);
             }else{
-                echo __('Nothing to delete, file does not exist', USP_NAME);
+                echo __('Nothing to delete, file does not exist', 'wp-splashing');
             }
         }
 
