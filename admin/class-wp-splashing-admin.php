@@ -105,7 +105,7 @@ class Wp_Splashing_Admin {
           echo __('Unable to save image, check your server permissions.', 'wp-splashing');
         }
 
-        $payload = Trim(stripslashes($_POST['image']));
+        $payload = trim(stripslashes($_POST['image']));
 
         $ch = curl_init();
 
@@ -135,6 +135,16 @@ class Wp_Splashing_Admin {
             $file =  $uploadPath . $tmpImage;
             // Upload generated file to media library using media_sideload_image()
             $splashingImage = media_sideload_image( $file , null, 'blaa' );
+
+            if($splashingImage instanceof WP_Error) {
+                $json = json_encode(
+                    array(
+                        'error' => false,
+                        'msg' => __('Something went wrong saving the image.', 'wp-splashing')
+                    )
+                );
+                echo $json;
+            }
 
             // Success JSON
             //echo __('File successfully uploaded to media library.', USP_NAME);
