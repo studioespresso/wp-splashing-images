@@ -16,14 +16,18 @@ jQuery(document).ready(function($) {
         if(!element.hasClass('saving')){
             element.addClass('saving');
             e.preventDefault();
-            var data = $(this).data('source')
+            var data = $(this).data('source');
+            var author = $(this).data('author');
+            var credit = $(this).data('credit');
             $.ajax({
                 type: 'POST',
                 url: settings.ajax_admin_url,
                 dataType: 'JSON',
                 data: {
                     action: 'wp_splashing_save_image',
-                    image: data, 
+                    image: data,
+                    author: author,
+                    credit: credit,
                     nonce: settings.wp_splashing_admin_nonce,
                 },
                 beforeSend: function() {

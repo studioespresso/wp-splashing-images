@@ -106,6 +106,8 @@ class Wp_Splashing_Admin {
         }
 
         $payload = trim(stripslashes($_POST['image']));
+        $author = $_POST['author'];
+        $credit = $_POST['credit'];
 
         $ch = curl_init();
 
@@ -134,7 +136,7 @@ class Wp_Splashing_Admin {
             $uploadPath = plugins_url('temp/', dirname(__FILE__));
             $file =  $uploadPath . $tmpImage;
             // Upload generated file to media library using media_sideload_image()
-            $splashingImage = media_sideload_image( $file , null, 'blaa' );
+            $splashingImage = media_sideload_image( $file , null, $author );
 
             if($splashingImage instanceof WP_Error) {
                 $json = json_encode(
