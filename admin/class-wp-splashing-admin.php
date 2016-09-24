@@ -146,8 +146,8 @@ class Wp_Splashing_Admin {
             );
 
             // Delete the file we just uplaoded from the tmp dir.
-            if(file_exists($tmp_path.''.$tmp)){
-                unlink($tmp_path.''.$tmp);
+            if(file_exists($dir.''.$tmpImage)){
+                unlink($dir.''.$tmpImage);
             }else{
                 echo __('Nothing to delete, file does not exist', USP_NAME);
             }
