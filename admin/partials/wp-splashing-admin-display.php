@@ -45,7 +45,11 @@
 
 	         			if(isset($images)) {
 	                    	foreach($images as $image) {
-	                        	 echo '<a href="" class="upload" data-source="' . $image->links['download'] . '"><img class="splashing-thumbnail" src="' . $image->urls['thumb'] .'"></a>';
+	                    	    $thumb = $image->urls['thumb'];
+                                $download = $image->links['download'];
+                                $author = $image->user['name'];
+                                $credit = $image->user['links']['html'];
+                                echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '" data-credit="' . $credit .'"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
 	                    	} 
 	                    } ?>
 	                </div>
