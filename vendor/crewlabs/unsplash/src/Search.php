@@ -2,7 +2,7 @@
 
 namespace Crew\Unsplash;
 
-class Search extends SearchEndpoint
+class Search extends Endpoint
 {
     /**
      * Retrieve all the photos on a specific page depending on search results
