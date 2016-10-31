@@ -42,18 +42,16 @@
 	                	} else {
 		                    $images = $this->unsplash->getLastFeatured(20);
 	                	}
-
-	         			if(isset($images)) {
-
+	         			if($images != false) {
 	                    	foreach($images as $image) {
 	                    	    $thumb = $image->urls['thumb'];
                                 $download = $image->links['download'];
                                 $author = $image->user['name'];
-
-			                   
                                 echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
 	                    	}
-	                    } ?>
+	                    } else {
+							echo "NO RESULTS";
+						} ?>
 	                </div>
                 </div>
                 <div id="postbox-container-1" class="postbox-container">

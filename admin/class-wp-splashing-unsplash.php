@@ -78,6 +78,9 @@ class Wp_Splashing_Unsplash {
     public function search($string, $page = 1) {
     	$this->setup();
     	$search = Crew\Unsplash\Search::photos($string, $page);
+        if(count($search->results) < 1) {
+            return false;
+        }
 	    foreach ($search->results as $image) {
 		    $image->urls = (array)$image->urls;
 		    $image->links = (array)$image->links;
