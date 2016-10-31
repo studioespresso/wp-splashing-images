@@ -76,20 +76,30 @@ class Wp_Splashing_Unsplash {
     }
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
     public function search($string, $page = 1) {
-    	$this->setup();
-    	$search = Crew\Unsplash\Search::photos($string, $page);
-        if(count($search->results) < 1) {
-            return $data['results'] = false;
+        $transient = 'splashing_search_' . $string . '_' . $page;
+        if(get_transient($transient)) {
+            return unserialize(get_transient($transient));
         } else {
-            $data['pagination']['total_pages'] = $search->total_pages;
-            $data['pagination']['total_results'] = $search->total;
-            $data['pagination']['base'] = '/wp-admin/upload.php?page=wp-splashing';
-            foreach ($search->results as $image) {
-                $image->urls = (array)$image->urls;
-                $image->links = (array)$image->links;
-                $image->user = (array)$image->user;
+            $transient = 'splashing_search_' . $string . '_' . $page;
+            $this->setup();
+            $search = Crew\Unsplash\Search::photos($string, $page);
+            if(count($search->results) < 1) {
+                $data['results'] = false;
+                set_transient($transient, $data, 48 * HOUR_IN_SECONDS);
+            } else {
+                $data['pagination']['total_pages'] = $search->total_pages;
+                $data['pagination']['total_results'] = $search->total;
+                $data['pagination']['base'] = '/wp-admin/upload.php?page=wp-splashing';
+                foreach ($search->results as $image) {
+                    $image->urls = (array)$image->urls;
+                    $image->links = (array)$image->links;
+                    $image->user = (array)$image->user;
+                }
+                $data['results'] = $search->results;
+                set_transient($transient, $data, 48 * HOUR_IN_SECONDS);
+
             }
-            $data['results'] = $search->results;
+
             return $data;
         }
 
