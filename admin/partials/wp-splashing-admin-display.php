@@ -32,7 +32,7 @@
 	                        <input type="hidden" name="action" value="wp_splashing_search">
 							<input type="hidden" name="paged" value="1">
 	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
-	                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
+	                        <input type="submit" id="search-submit" class="button" value="<?php _e('Search Unsplash','wp-splashing');?>">
 	                    </form>
 	                    </div>
 	                </div>
@@ -62,8 +62,8 @@
 							'end_size'           => 2,
 							'mid_size'           => 3,
 							'prev_next'          => true,
-							'prev_text'          => __('« Previous'),
-							'next_text'          => __('Next »'),
+							'prev_text'          => __('« Previous', 'wp-splashing'),
+							'next_text'          => __('Next »', 'wp-splashing'),
 							'type'               => 'plain',
 							'add_args'           => false,
 							'add_fragment'       => '',
