@@ -89,8 +89,8 @@ class Wp_Splashing_Admin {
     public function wp_splashing_search() {
         $this->checkNonce($_GET["nonce"]);
         $string = sanitize_text_field($_GET['search']);
-        $page = sanitize_text_field($_GET['page']);
-        wp_redirect( '/wp-admin/upload.php?page=wp-splashing&search=' . $string . '&result=' . $page, 302 );
+        $page = sanitize_text_field($_GET['paged']);
+        wp_redirect( '/wp-admin/upload.php?page=wp-splashing&search=' . $string . '&paged=' . $page, 302 );
     }
 
     public function wp_splashing_save_image() {

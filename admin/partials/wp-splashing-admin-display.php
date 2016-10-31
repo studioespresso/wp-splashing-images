@@ -39,21 +39,43 @@
 	                <div id="splashing-images">
 	                	<?php
 	                	if(isset($_GET['search'])) {
-	                		$images = $this->unsplash->search($_GET['search'], $_GET['result']);
+	                		$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
+							$images = $data['results'];
 	                	} else {
-		                    $images = $this->unsplash->getLastFeatured(20);
+		                    $images = $this->unsplash->getLastFeatured(24);
 	                	}
 	         			if($images != false) {
+							echo '<div class="wrapper">';
 	                    	foreach($images as $image) {
 	                    	    $thumb = $image->urls['thumb'];
                                 $download = $image->links['download'];
                                 $author = $image->user['name'];
                                 echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
 	                    	}
+	                    	echo '</div>';
+						$args = array(
+							'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
+ 							'format'             => '?paged=%#%',
+							'total'              => $data['pagination']['total_pages'],
+							'current'            => $_GET['paged'],
+							'show_all'           => true,
+							'end_size'           => 1,
+							'mid_size'           => 2,
+							'prev_next'          => true,
+							'prev_text'          => __('« Previous'),
+							'next_text'          => __('Next »'),
+							'type'               => 'plain',
+							'add_args'           => true,
+							'add_fragment'       => '',
+							'before_page_number' => '',
+							'after_page_number'  => ''
+						);
+						 echo paginate_links( $args );
 	                    } else {
 							echo "NO RESULTS";
 						} ?>
-	                </div>
+
+					</div>
                 </div>
                 <div id="postbox-container-1" class="postbox-container">
                     <div class="postbox">
