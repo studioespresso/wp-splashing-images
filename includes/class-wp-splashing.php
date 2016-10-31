@@ -163,6 +163,8 @@ class Wp_Splashing {
 		$this->loader->add_action( 'wp_ajax_nopriv_wp_splashing_save_image', $plugin_admin, 'wp_splashing_save_image' );
 		$this->loader->add_action( 'admin_post_wp_splashing_search', $plugin_admin, 'wp_splashing_search' );
 		$this->loader->add_action( 'admin_post_nopriv_wp_splashing_search', $plugin_admin, 'wp_splashing_search' );
+        $this->loader->add_action( 'media_upload_tabs', $plugin_admin, 'wp_splashing_media_tab');
+        $this->loader->add_action( 'media_upload_splashing', $plugin_admin, 'wp_splashing_add_media_tab');
 
 	}
 

@@ -174,6 +174,19 @@ class Wp_Splashing_Admin {
         add_submenu_page( 'upload.php', 'Splashing Images', 'Splashing Images', 'upload_files', 'wp-splashing', array( $this, 'wp_splashing_settings_page' ));
     }
 
+    public function wp_splashing_media_tab($tabs) {
+        $tabs['splashing'] = __('Splashing Images', 'wp-splashing');
+        return $tabs;
+    }
+
+    public function wp_splashing_add_media_tab() {
+        wp_iframe(array($this, 'wp_splashing_media_tab_content'));
+    }
+
+    public function wp_splashing_media_tab_content() {
+        echo media_upload_header(); // This function is used for print media uploader headers etc.
+    }
+
     public function checkNonce($nonce) {
         // Check our nonce, if they don't match then bounce!
         if (! wp_verify_nonce( $nonce, 'wp_splashing_nonce' )) {
