@@ -79,15 +79,20 @@ class Wp_Splashing_Unsplash {
     	$this->setup();
     	$search = Crew\Unsplash\Search::photos($string, $page);
         if(count($search->results) < 1) {
-            return false;
+            return $data['results'] = false;
+        } else {
+            $data['pagination']['total_pages'] = $search->total_pages;
+            $data['pagination']['total_results'] = $search->total;
+            $data['pagination']['base'] = '/wp-admin/upload.php?page=wp-splashing';
+            foreach ($search->results as $image) {
+                $image->urls = (array)$image->urls;
+                $image->links = (array)$image->links;
+                $image->user = (array)$image->user;
+            }
+            $data['results'] = $search->results;
+            return $data;
         }
 
-	    foreach ($search->results as $image) {
-		    $image->urls = (array)$image->urls;
-		    $image->links = (array)$image->links;
-		    $image->user = (array)$image->user;
-	    }
-    	return $search->results;
     }
 
 }
