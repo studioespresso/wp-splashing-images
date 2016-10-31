@@ -11,10 +11,10 @@ namespace Crew\Unsplash;
  * @method static \GuzzleHttp\Psr7\Response
  * @see \Crew\Unsplash\HttpClient::send()
  */
-class Endpoint
+class SearchEndpoint
 {
     /** @var array All parameters that an endpoint can have */
-    private $parameters;
+    public $parameters;
 
     /** @var array List of accepted http actions */
     private static $acceptedHttpMethod = ['get', 'post', 'put', 'delete'];
