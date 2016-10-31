@@ -58,19 +58,21 @@
  							'format'             => '?paged=%#%',
 							'total'              => $data['pagination']['total_pages'],
 							'current'            => $_GET['paged'],
-							'show_all'           => true,
-							'end_size'           => 1,
-							'mid_size'           => 2,
+							'show_all'           => false,
+							'end_size'           => 2,
+							'mid_size'           => 3,
 							'prev_next'          => true,
 							'prev_text'          => __('« Previous'),
 							'next_text'          => __('Next »'),
 							'type'               => 'plain',
-							'add_args'           => true,
+							'add_args'           => false,
 							'add_fragment'       => '',
 							'before_page_number' => '',
 							'after_page_number'  => ''
 						);
-						 echo paginate_links( $args );
+						echo '<div class="splashing-pagination">';
+						echo paginate_links( $args );
+						echo '</div>';
 	                    } else {
 							echo "NO RESULTS";
 						} ?>

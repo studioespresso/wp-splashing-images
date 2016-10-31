@@ -23,6 +23,10 @@ form#splashing-search {
     padding: 12px 0;
     float: right;
 }
+.splashing-pagination {
+    text-align: center;
+    font-size: 1.2em;
+}
 
 .checkmark__circle {
   stroke-dasharray: 166;
