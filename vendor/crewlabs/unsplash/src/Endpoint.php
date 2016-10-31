@@ -6,22 +6,22 @@ namespace Crew\Unsplash;
  * Class Endpoint
  *
  * Magic static method wrappers for HttpClient::send()
- * @method static \GuzzleHttp\Psr7\Response get(string $uri, mixed $arguments = null,...)
- * @method static \GuzzleHttp\Psr7\Response post(string $uri, mixed $arguments = null,...)
- * @method static \GuzzleHttp\Psr7\Response put(string $uri, mixed $arguments = null,...)
+ * @method static \GuzzleHttp\Psr7\Response
+ * @method static \GuzzleHttp\Psr7\Response
+ * @method static \GuzzleHttp\Psr7\Response
  * @see \Crew\Unsplash\HttpClient::send()
  */
 class Endpoint
 {
     /** @var array All parameters that an endpoint can have */
-    private $parameters;
+    public $parameters;
 
     /** @var array List of accepted http actions */
     private static $acceptedHttpMethod = ['get', 'post', 'put', 'delete'];
 
     /**
      * Construct a new endpoint object and set the parameters from an array
-     * 
+     *
      * @param array $parameters
      */
     public function __construct($parameters = [])
@@ -32,7 +32,7 @@ class Endpoint
 
     /**
      * Merge old parameters with the new one
-     * 
+     *
      * @param  array $parameters The parameters to update on the object
      * @return void
      */
@@ -43,7 +43,7 @@ class Endpoint
 
     /**
      * Magic method to retrieve a specific parameter in the parameters array
-     * 
+     *
      * @param  string $key
      * @return mixed
      */
@@ -55,14 +55,14 @@ class Endpoint
     /**
      * Check if the HTTP method is accepted and send a HTTP request to it.
      * Retrieve error from the request and throw a new error
-     * 
+     *
      * @param  string $method HTTP action to trigger
      * @param  array $arguments Array containing all the parameters pass to the magic method
-     * 
+     *
      * @throws \Crew\Unsplash\Exception if the HTTP request failed
      *
      * @see Crew\Unsplash\HttpClient::send()
-     * 
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public static function __callStatic($method, $arguments)
@@ -91,7 +91,7 @@ class Endpoint
 
     /**
      * Retrieve the response status code and determine if the request was successful.
-     * 
+     *
      * @param  \GuzzleHttp\Psr7\Response $response of the HTTP request
      * @return boolean
      */
@@ -102,7 +102,7 @@ class Endpoint
 
     /**
      * Retrieve the error messages in the body
-     * 
+     *
      * @param  \GuzzleHttp\Psr7\Response $response of the HTTP request
      * @return array Array of error messages
      */

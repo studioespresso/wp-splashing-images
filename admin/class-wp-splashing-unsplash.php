@@ -78,7 +78,13 @@ class Wp_Splashing_Unsplash {
     public function search($string, $page = 1) {
     	$this->setup();
     	$search = Crew\Unsplash\Search::photos($string, $page);
-    	return $search;
+	    foreach ($search->results as $image) {
+		    $image->urls = (array)$image->urls;
+		    $image->links = (array)$image->links;
+		    $image->user = (array)$image->user;
+
+	    }
+    	return $search->results;
     }
 
 }

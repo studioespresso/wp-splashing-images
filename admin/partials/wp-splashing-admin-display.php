@@ -32,25 +32,27 @@
 	                        <input type="hidden" name="action" value="wp_splashing_search">
 	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
 	                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
-	                    </form> 
+	                    </form>
 	                    </div>
 	                </div>
 	                <div id="splashing-images">
-	                	<?php 
+	                	<?php
 	                	if(isset($_GET['search'])) {
 	                		$images = $this->unsplash->search($_GET['search'], $_GET['orientation']);
 	                	} else {
-		                    $images = $this->unsplash->getLastFeatured(50);
-	                	}  
+		                    $images = $this->unsplash->getLastFeatured(20);
+	                	}
 
 	         			if(isset($images)) {
+
 	                    	foreach($images as $image) {
 	                    	    $thumb = $image->urls['thumb'];
                                 $download = $image->links['download'];
                                 $author = $image->user['name'];
-                                $credit = $image->user['links']['html'];
-                                echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '" data-credit="' . $credit .'"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
-	                    	} 
+
+			                   
+                                echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
+	                    	}
 	                    } ?>
 	                </div>
                 </div>
