@@ -78,11 +78,11 @@ class Wp_Splashing_Unsplash {
     public function search($string, $page = 1) {
         $transient = 'splashing_search_' . $string . '_' . $page;
         if(get_transient($transient)) {
-            return unserialize(get_transient($transient));
+            return get_transient($transient);
         } else {
-            $transient = 'splashing_search_' . $string . '_' . $page;
             $this->setup();
             $search = Crew\Unsplash\Search::photos($string, $page);
+            $transient = 'splashing_search_' . $string . '_' . $page;
             if(count($search->results) < 1) {
                 $data['results'] = false;
                 set_transient($transient, $data, 48 * HOUR_IN_SECONDS);
