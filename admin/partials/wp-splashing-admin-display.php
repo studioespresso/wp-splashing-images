@@ -18,22 +18,17 @@
     <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
                 <div id="splashing_images" style="position: relative;" class="postbox-container">
-	                <div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
-	                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=list" class="view-list">
-	                            <span class="screen-reader-text">List View</span>
-	                        </a>
-	                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=grid" class="view-grid current">
-	                            <span class="screen-reader-text">Grid View</span>
-	                        </a>
-	                    </div>
-	                    <form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
-	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-	                        <input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
-	                        <input type="hidden" name="action" value="wp_splashing_search">
-							<input type="hidden" name="paged" value="1">
-	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
-	                        <input type="submit" id="search-submit" class="button" value="<?php _e('Search Unsplash','wp-splashing');?>">
-	                    </form>
+	                <div class="media-toolbar wp-filter">
+						<div class="media-toolbar-secondary">
+							<a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button media-button  select-mode-toggle-button" style="margin: 12px 0px;"><?php _e('Random','wp-splashing'); ?></a>
+							<form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
+								<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
+								<input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
+								<input type="hidden" name="action" value="wp_splashing_search">
+								<input type="hidden" name="paged" value="1">
+								<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
+								<input type="submit" id="search-submit" class="button" value="<?php _e('Search Unsplash','wp-splashing');?>">
+							</form>
 	                    </div>
 	                </div>
 	                <div id="splashing-images">
