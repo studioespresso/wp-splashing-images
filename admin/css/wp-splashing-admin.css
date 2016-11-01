@@ -12,7 +12,9 @@ img.splashing-thumbnail {
     max-width: 200px;
     position: relative;
  }
-
+.media-toolbar-secondary a {
+    margin: 0 12px 0 2px
+}
 
 .wp-filter {
     margin-top: 0px;
