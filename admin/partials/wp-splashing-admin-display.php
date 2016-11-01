@@ -66,9 +66,6 @@
 							'next_text'          => __('Next »', 'wp-splashing'),
 							'type'               => 'plain',
 							'add_args'           => false,
-							'add_fragment'       => '',
-							'before_page_number' => '',
-							'after_page_number'  => ''
 						);
 						echo '<div class="splashing-pagination">';
 						echo paginate_links( $args );

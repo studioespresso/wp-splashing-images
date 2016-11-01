@@ -96,11 +96,8 @@ class Wp_Splashing_Admin {
     public function wp_splashing_save_image() {
 
         $this->checkNonce($_POST["nonce"]);
-
         $dir = plugin_dir_path( dirname( __FILE__ ) ) . 'temp/';
-        if(!is_dir($dir)){
-            mkdir($dir);
-        }
+        if(!is_dir($dir)){ mkdir($dir); }
 
         if (!is_writable(plugin_dir_path( dirname( __FILE__ ) ) . 'temp/')) {
           echo __('Unable to save image, check your server permissions.', 'wp-splashing');
@@ -108,10 +105,8 @@ class Wp_Splashing_Admin {
 
         $payload = trim(stripslashes($_POST['image']));
         $author = $_POST['author'];
-        $credit = $_POST['credit'];
 
         $ch = curl_init();
-
         curl_setopt($ch, CURLOPT_URL, $payload);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -136,7 +131,6 @@ class Wp_Splashing_Admin {
         if ($saved_file) {
             $uploadPath = plugins_url('temp/', dirname(__FILE__));
             $file =  $uploadPath . $tmpImage;
-            // Upload generated file to media library using media_sideload_image()
             $splashingImage = media_sideload_image( $file , null, $author );
 
             if($splashingImage instanceof WP_Error) {
