@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://studioepresso.co
+ * @link       http://studioespresso.co
  * @since      1.0.0
  *
  * @package    Wp_Splashing
@@ -82,24 +82,22 @@ class Wp_Splashing_Admin {
 
     }
 
-    public function wp_splashing_settings_page() { 
-        require('partials/wp-splashing-admin-display.php');   
+    public function wp_splashing_settings_page() {
+        require('partials/wp-splashing-admin-display.php');
     }
 
     public function wp_splashing_search() {
         $this->checkNonce($_GET["nonce"]);
         $string = sanitize_text_field($_GET['search']);
-        wp_redirect( '/wp-admin/upload.php?page=wp-splashing&search=' . $string , 302 );
+        $page = sanitize_text_field($_GET['paged']);
+        wp_redirect( '/wp-admin/upload.php?page=wp-splashing&search=' . $string . '&paged=' . $page, 302 );
     }
 
     public function wp_splashing_save_image() {
 
         $this->checkNonce($_POST["nonce"]);
-
         $dir = plugin_dir_path( dirname( __FILE__ ) ) . 'temp/';
-        if(!is_dir($dir)){
-            mkdir($dir);
-        }
+        if(!is_dir($dir)){ mkdir($dir); }
 
         if (!is_writable(plugin_dir_path( dirname( __FILE__ ) ) . 'temp/')) {
           echo __('Unable to save image, check your server permissions.', 'wp-splashing');
@@ -107,10 +105,8 @@ class Wp_Splashing_Admin {
 
         $payload = trim(stripslashes($_POST['image']));
         $author = $_POST['author'];
-        $credit = $_POST['credit'];
 
         $ch = curl_init();
-
         curl_setopt($ch, CURLOPT_URL, $payload);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -135,7 +131,6 @@ class Wp_Splashing_Admin {
         if ($saved_file) {
             $uploadPath = plugins_url('temp/', dirname(__FILE__));
             $file =  $uploadPath . $tmpImage;
-            // Upload generated file to media library using media_sideload_image()
             $splashingImage = media_sideload_image( $file , null, $author );
 
             if($splashingImage instanceof WP_Error) {

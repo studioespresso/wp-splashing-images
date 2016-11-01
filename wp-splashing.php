@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://studioepresso.co
+ * @link              http://studioespresso.co
  * @since             1.0.0
  * @package           Wp_Splashing
  *
  * @wordpress-plugin
- * Plugin Name:       Splashing Images
- * Plugin URI:        http://studioepresso.co
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       WP Splashing Images
+ * Plugin URI:        http://studioespresso.co
+ * Description:       Quick access to amazing photos from unsplash.com, add photos with one click and use them in your content right away.
  * Version:           1.0.0
  * Author:            Studio Espresso
- * Author URI:        http://studioepresso.co
+ * Author URI:        http://studioespresso.co
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wp-splashing

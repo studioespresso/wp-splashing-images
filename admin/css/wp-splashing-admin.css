@@ -9,6 +9,7 @@ a.upload {
 img.splashing-thumbnail {
     padding: 10px;
     width: 30%;
+    max-width: 200px;
     position: relative;
  }
 
@@ -21,6 +22,10 @@ form#splashing-search {
     vertical-align: middle;
     padding: 12px 0;
     float: right;
+}
+.splashing-pagination {
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .checkmark__circle {

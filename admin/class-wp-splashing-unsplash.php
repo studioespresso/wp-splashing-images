@@ -3,7 +3,7 @@
 /**
  * The unsplash-specific functionality of the plugin.
  *
- * @link       http://studioepresso.co
+ * @link       http://studioespresso.co
  * @since      1.0.0
  *
  * @package    Wp_Splashing
@@ -69,16 +69,35 @@ class Wp_Splashing_Unsplash {
         }
     }
 
-    public function getCategories() {
-    	$this->setup();
-    	$categories = Crew\Unsplash\Category::all(1, 200);
-    	return $categories;
-    }
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
     public function search($string, $page = 1) {
-    	$this->setup();
-    	$search = Crew\Unsplash\Search::photos($string, $page);
-    	return $search;
+        $transient = 'splashing_search_' . $string . '_' . $page;
+        if(get_transient($transient)) {
+            return get_transient($transient);
+        } else {
+            $this->setup();
+            $search = Crew\Unsplash\Search::photos($string, $page);
+            $transient = 'splashing_search_' . $string . '_' . $page;
+            if(count($search->results) < 1) {
+                $data['results'] = false;
+                set_transient($transient, $data, 48 * HOUR_IN_SECONDS);
+            } else {
+                $data['pagination']['total_pages'] = $search->total_pages;
+                $data['pagination']['total_results'] = $search->total;
+                $data['pagination']['base'] = '/wp-admin/upload.php?page=wp-splashing';
+                foreach ($search->results as $image) {
+                    $image->urls = (array)$image->urls;
+                    $image->links = (array)$image->links;
+                    $image->user = (array)$image->user;
+                }
+                $data['results'] = $search->results;
+                set_transient($transient, $data, 48 * HOUR_IN_SECONDS);
+
+            }
+
+            return $data;
+        }
+
     }
 
 }

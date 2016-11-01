@@ -22,10 +22,11 @@ class Search extends Endpoint
                 ]
             ]
         );
+	    $photosArray = json_decode($photos->getBody()->getContents());
+	    return $photosArray;
 
-        $photosArray = self::getArray($photos->getBody(), get_called_class());
 
-        return new ArrayObject($photosArray, $photos->getHeaders());
+
     }
 
 }

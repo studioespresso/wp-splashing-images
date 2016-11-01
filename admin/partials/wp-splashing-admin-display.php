@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       http://studioepresso.co
+ * @link       http://studioespresso.co
  * @since      1.0.0
  *
  * @package    Wp_Splashing
@@ -28,31 +28,53 @@
 	                    </div>
 	                    <form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 	                        <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-	                        <input type="search" id="post-search-input" name="search" value="">
+	                        <input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
 	                        <input type="hidden" name="action" value="wp_splashing_search">
+							<input type="hidden" name="paged" value="1">
 	                        <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
-	                        <input type="submit" id="search-submit" class="button" value="Search Unsplash">
-	                    </form> 
+	                        <input type="submit" id="search-submit" class="button" value="<?php _e('Search Unsplash','wp-splashing');?>">
+	                    </form>
 	                    </div>
 	                </div>
 	                <div id="splashing-images">
-	                	<?php 
+	                	<?php
 	                	if(isset($_GET['search'])) {
-	                		$images = $this->unsplash->search($_GET['search'], $_GET['orientation']);
+	                		$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
+							$images = $data['results'];
 	                	} else {
-		                    $images = $this->unsplash->getLastFeatured(50);
-	                	}  
-
-	         			if(isset($images)) {
+		                    $images = $this->unsplash->getLastFeatured(24);
+	                	}
+	         			if($images != false) {
+							echo '<div class="wrapper">';
 	                    	foreach($images as $image) {
 	                    	    $thumb = $image->urls['thumb'];
                                 $download = $image->links['download'];
                                 $author = $image->user['name'];
-                                $credit = $image->user['links']['html'];
-                                echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '" data-credit="' . $credit .'"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
-	                    	} 
-	                    } ?>
-	                </div>
+                                echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
+	                    	}
+	                    	echo '</div>';
+						$args = array(
+							'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
+ 							'format'             => '?paged=%#%',
+							'total'              => $data['pagination']['total_pages'],
+							'current'            => $_GET['paged'],
+							'show_all'           => false,
+							'end_size'           => 2,
+							'mid_size'           => 3,
+							'prev_next'          => true,
+							'prev_text'          => __('« Previous', 'wp-splashing'),
+							'next_text'          => __('Next »', 'wp-splashing'),
+							'type'               => 'plain',
+							'add_args'           => false,
+						);
+						echo '<div class="splashing-pagination">';
+						echo paginate_links( $args );
+						echo '</div>';
+	                    } else {
+							echo "NO RESULTS";
+						} ?>
+
+					</div>
                 </div>
                 <div id="postbox-container-1" class="postbox-container">
                     <div class="postbox">
