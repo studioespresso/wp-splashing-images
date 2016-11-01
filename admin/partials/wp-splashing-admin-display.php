@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       http://studioepresso.co
+ * @link       http://studioespresso.co
  * @since      1.0.0
  *
  * @package    Wp_Splashing

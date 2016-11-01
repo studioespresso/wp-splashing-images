@@ -61,7 +61,7 @@ msgstr ""
 #. Plugin URI of the plugin/theme
 #. #-#-#-#-#  wp-splashing.pot (Splashing Images 1.0.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
-msgid "http://studioepresso.co"
+msgid "http://studioespresso.co"
 msgstr ""
 
 #. Description of the plugin/theme

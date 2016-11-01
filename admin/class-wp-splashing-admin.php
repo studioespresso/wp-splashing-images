@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       http://studioepresso.co
+ * @link       http://studioespresso.co
  * @since      1.0.0
  *
  * @package    Wp_Splashing
