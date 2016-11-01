@@ -68,12 +68,7 @@ class Wp_Splashing_Unsplash {
             return $images;
         }
     }
-
-    public function getCategories() {
-    	$this->setup();
-    	$categories = Crew\Unsplash\Category::all(1, 200);
-    	return $categories;
-    }
+    
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
     public function search($string, $page = 1) {
         $transient = 'splashing_search_' . $string . '_' . $page;
