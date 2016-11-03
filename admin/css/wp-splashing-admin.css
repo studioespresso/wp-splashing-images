@@ -12,6 +12,10 @@ img.splashing-thumbnail {
     max-width: 200px;
     position: relative;
  }
+h2.hndle {
+    background-color: #0073aa;
+    color: #ffffff;
+}
 
 
 .wp-filter {
