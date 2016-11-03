@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "58b15599577f99a22842bd49b5b4afc3",
-    "content-hash": "dc6d505bf67d3a235af36d5798eeb224",
+    "content-hash": "e091449e095dc16ba6e259f4997dc8d3",
     "packages": [
         {
             "name": "crewlabs/unsplash",
@@ -51,7 +50,7 @@
                 }
             ],
             "description": "Wrapper to access information from Unsplash API more easily",
-            "time": "2016-09-04 18:58:07"
+            "time": "2016-09-04T18:58:07+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -113,7 +112,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-07-15 17:22:37"
+            "time": "2016-07-15T17:22:37+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -164,7 +163,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-05-18 16:56:05"
+            "time": "2016-05-18T16:56:05+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -222,7 +221,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2016-06-24T23:00:38+00:00"
         },
         {
             "name": "ircmaxell/random-lib",
@@ -277,7 +276,7 @@
                 "random-numbers",
                 "random-strings"
             ],
-            "time": "2016-09-07 15:52:06"
+            "time": "2016-09-07T15:52:06+00:00"
         },
         {
             "name": "ircmaxell/security-lib",
@@ -323,7 +322,7 @@
             ],
             "description": "A Base Security Library",
             "homepage": "https://github.com/ircmaxell/SecurityLib",
-            "time": "2015-03-20 14:31:23"
+            "time": "2015-03-20T14:31:23+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -386,68 +385,7 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2016-07-28 13:20:43"
-        },
-        {
-            "name": "mmucklo/krumo",
-            "version": "v0.5.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mmucklo/krumo.git",
-                "reference": "133a5b2382ef8b9b2537f6049964c8d88c5e5ad1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mmucklo/krumo/zipball/133a5b2382ef8b9b2537f6049964c8d88c5e5ad1",
-                "reference": "133a5b2382ef8b9b2537f6049964c8d88c5e5ad1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.17"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "dev-master",
-                "phpmd/phpmd": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "class.krumo.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Kaloyan K. Tsvetkov",
-                    "email": "kaloyan@kaloyan.info"
-                },
-                {
-                    "name": "Stefan Thomas",
-                    "email": "moon@justmoon.de"
-                },
-                {
-                    "name": "Matthew J. Mucklo",
-                    "email": "mmucklo@gmail.com"
-                },
-                {
-                    "name": "Scott Baker",
-                    "email": "scott@perturb.org"
-                }
-            ],
-            "description": "KRUMO - version 2.0 of print_r(); and var_dump(); (with new updates)",
-            "keywords": [
-                "debug",
-                "debugging",
-                "krumo",
-                "pretty",
-                "print",
-                "print_r",
-                "var_dump"
-            ],
-            "time": "2016-03-15 07:21:38"
+            "time": "2016-07-28T13:20:43+00:00"
         },
         {
             "name": "psr/http-message",
@@ -497,7 +435,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         }
     ],
     "packages-dev": [],

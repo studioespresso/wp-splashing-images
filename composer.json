@@ -1,6 +1,5 @@
 {
     "require": {
-        "crewlabs/unsplash": "^2.1",
-        "mmucklo/krumo": "^0.5.7"
+        "crewlabs/unsplash": "^2.1"
     }
 }
