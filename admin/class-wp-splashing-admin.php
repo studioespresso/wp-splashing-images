@@ -131,7 +131,8 @@ class Wp_Splashing_Admin {
         if ($saved_file) {
             $uploadPath = plugins_url('temp/', dirname(__FILE__));
             $file =  $uploadPath . $tmpImage;
-            $splashingImage = media_sideload_image( $file , null, $author );
+	        $credit = __('Photo by ', 'wp-splashing') . $author;
+            $splashingImage = media_sideload_image( $file , null, $credit );
 
             if($splashingImage instanceof WP_Error) {
                 $json = json_encode(
