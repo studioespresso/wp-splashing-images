@@ -88,7 +88,7 @@
 			</div>
 			<div id="postbox-container-1" class="postbox-container">
 				<div class="postbox">
-					<h2 class="hndle"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>
+					<h2 class="hndle splashing"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>
 					<div class="inside">
 						<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing'); ?></p>
 						<h3><?php _e('Unsplash License', 'wp-splashing'); ?></h3>
