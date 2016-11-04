@@ -8,12 +8,13 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quick access to amazing photos from unsplash.com, add photos with one click and use them in your content right away.
+Unsplash.com photos, right in your dashboard. Add photos with one click and use them in your content right away.
+
 
 == Description ==
 Unsplash.com offers stunning photos, free for you to use wherever you want. The Unsplash license allows for photographs to be used for any purpose — both commercial and personal. Blogs, art, book covers, tshirts, and more — paid or unpaid — they’re all allowed under the license.
 
-Splashing Images brings these amazing photos to your fingertips, right where you edit your content, in WordPress. See the latest featured images or search Unsplash to find that perfect image you need for your newest post.
+Splashing Images brings these amazing photos to your fingertips, right where you edit your content, in your dashboard. See the latest featured images or search Unsplash to find that perfect image you need for your newest post.
 
 Note: this plugin is not affiliated with unsplash.com.
 
