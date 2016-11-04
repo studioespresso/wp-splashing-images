@@ -19,6 +19,9 @@
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
+					<div class="media-toolbar-primary">
+						<a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="btn" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('Surprise me', 'wp-splashing'); ?></a>
+					</div>
 					<div class="media-toolbar-secondary">
 					<form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 						<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
@@ -35,6 +38,8 @@
 					if(isset($_GET['search'])) {
 						$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
 						$images = $data['results'];
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
+
 					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
