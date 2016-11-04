@@ -23,6 +23,8 @@
 					</div>
                     <div class="media-toolbar-primary">
                         <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('Surprise me', 'wp-splashing'); ?></a>
+
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="button btn--inline" alt="<?php _e('Shows the 25 last added images', 'wp-splashing'); ?>"><?php _e('Latest', 'wp-splashing'); ?></a>
                     </div>
                     <div class="media-toolbar-secondary">
 
@@ -43,7 +45,9 @@
 						$images = $data['results'];
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
                         $images = $this->unsplash->getRandom(25);
-					} else {
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'latest') {
+                        $images = $this->unsplash->getLatest(25);
+                    } else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
 					if($images != false) {
