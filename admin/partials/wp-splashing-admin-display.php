@@ -19,8 +19,14 @@
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
-					<div class="media-toolbar-secondary">
-					<form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
+					<div class="media-toolbar-primary">
+					</div>
+                    <div class="media-toolbar-primary">
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('Surprise me', 'wp-splashing'); ?></a>
+                    </div>
+                    <div class="media-toolbar-secondary">
+
+                        <form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 						<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
 						<input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
 						<input type="hidden" name="action" value="wp_splashing_search">
@@ -35,6 +41,8 @@
 					if(isset($_GET['search'])) {
 						$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
 						$images = $data['results'];
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
+                        $images = $this->unsplash->getRandom(25);
 					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
@@ -47,23 +55,25 @@
 							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
 						}
 						echo '</div>';
-					$args = array(
-						'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
-						'format'             => '?paged=%#%',
-						'total'              => $data['pagination']['total_pages'],
-						'current'            => $_GET['paged'],
-						'show_all'           => false,
-						'end_size'           => 2,
-						'mid_size'           => 3,
-						'prev_next'          => true,
-						'prev_text'          => __('« Previous', 'wp-splashing'),
-						'next_text'          => __('Next »', 'wp-splashing'),
-						'type'               => 'plain',
-						'add_args'           => false,
-					);
-					echo '<div class="splashing-pagination">';
-					echo paginate_links( $args );
-					echo '</div>';
+                        if(isset($data['pagination'])) {
+                            $args = array(
+                                'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
+                                'format'             => '?paged=%#%',
+                                'total'              => $data['pagination']['total_pages'],
+                                'current'            => $_GET['paged'],
+                                'show_all'           => false,
+                                'end_size'           => 2,
+                                'mid_size'           => 3,
+                                'prev_next'          => true,
+                                'prev_text'          => __('« Previous', 'wp-splashing'),
+                                'next_text'          => __('Next »', 'wp-splashing'),
+                                'type'               => 'plain',
+                                'add_args'           => false,
+                            );
+                            echo '<div class="splashing-pagination">';
+                            echo paginate_links( $args );
+                            echo '</div>';
+                        }
 					} else {
 						echo "NO RESULTS";
 					} ?>
