@@ -69,6 +69,16 @@ class Wp_Splashing_Unsplash {
         }
     }
 
+    public function getRandom($count = 25) {
+        $this->setup();
+        $data = Crew\Unsplash\Photo::random(
+            array(
+                'count' => $count
+            )
+        );
+        return $data;
+    }
+
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
     public function search($string, $page = 1) {
         $transient = 'splashing_search_' . $string . '_' . $page;

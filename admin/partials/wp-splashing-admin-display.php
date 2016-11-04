@@ -39,7 +39,7 @@
 						$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
 						$images = $data['results'];
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
-
+                        $images = $this->unsplash->getRandom(25);
 					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
