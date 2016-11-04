@@ -12,9 +12,17 @@ img.splashing-thumbnail {
     max-width: 200px;
     position: relative;
  }
+<<<<<<< HEAD
 .media-toolbar-secondary a {
     margin: 0 12px 0 2px
 }
+=======
+h2.hndle {
+    background-color: #0073aa;
+    color: #ffffff;
+}
+
+>>>>>>> develop
 
 .wp-filter {
     margin-top: 0px;
