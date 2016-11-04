@@ -18,14 +18,8 @@
     <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="splashing_images" style="position: relative;" class="postbox-container">
-				<div class="media-toolbar wp-filter"><div class="media-toolbar-secondary"><div class="view-switch media-grid-view-switch">
-						<a href="/wp-admin/upload.php?page=wp-splashing&mode=list" class="view-list">
-							<span class="screen-reader-text">List View</span>
-						</a>
-						<a href="/wp-admin/upload.php?page=wp-splashing&mode=grid" class="view-grid current">
-							<span class="screen-reader-text">Grid View</span>
-						</a>
-					</div>
+				<div class="media-toolbar wp-filter">
+					<div class="media-toolbar-secondary">
 					<form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 						<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
 						<input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
