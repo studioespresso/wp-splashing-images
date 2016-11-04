@@ -12,26 +12,29 @@ img.splashing-thumbnail {
     max-width: 200px;
     position: relative;
  }
-<<<<<<< HEAD
-.media-toolbar-secondary a {
-    margin: 0 12px 0 2px
+.media-toolbar-primary {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 0;
+    float: left;
 }
-=======
+.media-toolbar-secondary {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 0;
+    float: right;
+}
+
 h2.hndle {
     background-color: #0073aa;
     color: #ffffff;
 }
 
->>>>>>> develop
 
 .wp-filter {
     margin-top: 0px;
 }
 form#splashing-search {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 12px 0;
-    float: right;
 }
 .splashing-pagination {
     text-align: center;

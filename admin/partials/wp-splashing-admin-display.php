@@ -20,10 +20,13 @@
 			<div id="splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
 					<div class="media-toolbar-primary">
-						<a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="btn" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('Surprise me', 'wp-splashing'); ?></a>
 					</div>
-					<div class="media-toolbar-secondary">
-					<form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
+                    <div class="media-toolbar-primary">
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('Surprise me', 'wp-splashing'); ?></a>
+                    </div>
+                    <div class="media-toolbar-secondary">
+
+                        <form id="splashing-search" method="get" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
 						<label class="screen-reader-text" for="post-search-input">Search Posts:</label>
 						<input type="search" id="post-search-input" name="search" value="<?php echo $_GET['search']; ?>">
 						<input type="hidden" name="action" value="wp_splashing_search">
