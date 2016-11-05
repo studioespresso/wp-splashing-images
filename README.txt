@@ -27,11 +27,8 @@ Note: this plugin is not affiliated with unsplash.com.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. After installing the plugin, you can find it in the Dashboard under Media > Splashing Images
+2. You'll see the latest curated images, your can get the latest, most popular or random images. And you can search for a specific subject. When you've found the perfect image, simply click it to add it to the media library
 
 == Changelog ==
 
