@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Splashing Images\n"
-"POT-Creation-Date: 2016-10-31 22:20+0100\n"
-"PO-Revision-Date: 2016-10-31 22:20+0100\n"
+"POT-Creation-Date: 2016-11-05 11:04+0100\n"
+"PO-Revision-Date: 2016-11-05 20:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: nl_NL\n"
+"Language: nl_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,61 +20,120 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/class-wp-splashing-admin.php:106
-#: admin/class-wp-splashing-admin.php:131
+#: admin/class-wp-splashing-admin.php:103
+#: admin/class-wp-splashing-admin.php:126
 msgid "Unable to save image, check your server permissions."
 msgstr "Foto kan niet opgeslagen worden, controleer je server instellingen."
 
-#: admin/class-wp-splashing-admin.php:146
+#: admin/class-wp-splashing-admin.php:134
+msgid "Photo by "
+msgstr "Foto door"
+
+#: admin/class-wp-splashing-admin.php:141
 msgid "Something went wrong saving the image."
 msgstr "Er ging iets fout bij het bewaren van de foto."
 
-#: admin/class-wp-splashing-admin.php:157
+#: admin/class-wp-splashing-admin.php:152
 msgid "File successfully uploaded to media library."
 msgstr "Bestand toegevoegd aan de media bibliotheek."
 
-#: admin/class-wp-splashing-admin.php:165
+#: admin/class-wp-splashing-admin.php:160
 msgid "Nothing to delete, file does not exist"
 msgstr "Niets om te verwijderen, dit bestand bestaat niet"
 
 #. Plugin Name of the plugin/theme
-#: admin/partials/wp-splashing-admin-display.php:17
+#: admin/partials/wp-splashing-admin-display.php:18
 msgid "Splashing Images"
 msgstr "Splashing Images"
 
-#: admin/partials/wp-splashing-admin-display.php:35
-msgid "Search Unsplash"
-msgstr "Zoeken op Unsplash"
+#: admin/partials/wp-splashing-admin-display.php:28
+msgid "25 most popular photos on Unsplash"
+msgstr "Toont de 25 meest populaire foto’s op Unsplash"
 
-#: admin/partials/wp-splashing-admin-display.php:65
+#: admin/partials/wp-splashing-admin-display.php:28
+msgid "Popular"
+msgstr "Populair"
+
+#: admin/partials/wp-splashing-admin-display.php:29
+msgid "Shows the 25 last added images"
+msgstr "Toon de 25 laatst toegevoegde foto's"
+
+#: admin/partials/wp-splashing-admin-display.php:29
+msgid "&#128349; Last added"
+msgstr "&#128349; Laatst toegevoegd"
+
+#: admin/partials/wp-splashing-admin-display.php:30
+msgid "Shows 25 random images"
+msgstr "Toont 25 willekeurige foto’s"
+
+#: admin/partials/wp-splashing-admin-display.php:30
+msgid "Surprise me :)"
+msgstr "Verras mij :)"
+
+#: admin/partials/wp-splashing-admin-display.php:40
+msgid "&#128269; Search Unsplash"
+msgstr "&#128269; Zoek op Unsplash"
+
+#: admin/partials/wp-splashing-admin-display.php:77
 msgid "« Previous"
 msgstr "« Vorige"
 
-#: admin/partials/wp-splashing-admin-display.php:66
+#: admin/partials/wp-splashing-admin-display.php:78
 msgid "Next »"
 msgstr "Volgende »"
 
-#: admin/partials/wp-splashing-admin-display.php:84
+#: admin/partials/wp-splashing-admin-display.php:94
 msgid "Powered by Unsplash"
 msgstr "Mogelijk gemaakt door Unsplash"
 
-#: admin/partials/wp-splashing-admin-display.php:86
+#: admin/partials/wp-splashing-admin-display.php:96
 msgid ""
 "Splashing Images is powered by <a href=\"http://unsplash.com\">unsplash.com</"
 "a> and the Unsplash API."
 msgstr ""
+"Splashing Images is mogelijk gemaakt door <a href=\"http://unsplash.com"
+"\">unsplash.com</a> en de Unsplash API."
 
-#: admin/partials/wp-splashing-admin-display.php:87
-msgid "Unsplash License "
+#: admin/partials/wp-splashing-admin-display.php:97
+msgid "Unsplash License"
 msgstr "Unsplash licentie"
 
-#: admin/partials/wp-splashing-admin-display.php:88
+#: admin/partials/wp-splashing-admin-display.php:98
 msgid ""
-"All photos published on Unsplash are licensed under Creative Commons Zero "
-"which means you can copy, modify, distribute and use the photos for free, "
+"All photos published on Unsplash are licensed under <a href=\"https://"
+"creativecommons.org/publicdomain/zero/1.0/\">Creative Commons Zero</a> which "
+"means you can copy, modify, distribute and use the photos for free, "
 "including commercial purposes, without asking permission from or providing "
 "attribution to the photographer or Unsplash."
 msgstr ""
+"Alle foto's gepubliceerd op Unsplash zijn gelicenseerd onder <a href="
+"\"https://creativecommons.org/publicdomain/zero/1.0/\">Creative Commons "
+"Zero</a> wat betekent dat je kunt kopiëren, wijzigen, distribueren en "
+"gebruik maken van de foto's voor gratis, met inbegrip van commerciële "
+"doeleinden, zonder toestemming te vragen van of het verstrekken van "
+"toerekening aan de fotograaf of Unsplash."
+
+#: admin/partials/wp-splashing-admin-display.php:102
+msgid ""
+"By <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+"utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+"\"_blank\">Studio Espresso</a>, with"
+msgstr ""
+"Door <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+"utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+"\"_blank\">Studio Espresso</a>, met "
+
+#: admin/partials/wp-splashing-admin-display.php:103
+msgid ""
+"We'd love to hear what you think about the plugin so feel free to get in "
+"touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> "
+"or <a href='https://wordpress.org/support/plugin/wp-splashing-images' "
+"target='_blank'>questions</a>"
+msgstr ""
+"We willen graag horen wat je denkt over de plugin! Stuur ons je <a "
+"href='mailto:support@studioespresso.co'>suggesties</a> of stel je vragen <a "
+"href='https://wordpress.org/support/plugin/wp-splashing-images' "
+"target='_blank'>vragen</a>."
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -83,10 +142,18 @@ msgstr "http://studioespresso.co"
 
 #. Description of the plugin/theme
 msgid ""
-"This is a short description of what the plugin does. It's displayed in the "
-"WordPress admin area."
+"Unsplash.com photos, right in your dashboard. Add photos with one click and "
+"use them in your content right away."
 msgstr ""
+"Unsplash.com foto's, in je dashboard. Voeg foto's to met 1 klik en gebruikt "
+"ze onmiddellijk in je content."
 
 #. Author of the plugin/theme
 msgid "Studio Espresso"
 msgstr "Studio Espresso"
+
+#~ msgid "Search Unsplash"
+#~ msgstr "Zoeken op Unsplash"
+
+#~ msgid "Unsplash License "
+#~ msgstr "Unsplash licentie"
