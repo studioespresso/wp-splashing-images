@@ -64,30 +64,34 @@
 							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail ms-item" src="' . $thumb .'"></a>';
 						}
 						echo '</div>';
-                        if(isset($data['pagination'])) {
-                            $args = array(
-                                'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
-                                'format'             => '?paged=%#%',
-                                'total'              => $data['pagination']['total_pages'],
-                                'current'            => $_GET['paged'],
-                                'show_all'           => false,
-                                'end_size'           => 2,
-                                'mid_size'           => 3,
-                                'prev_next'          => true,
-                                'prev_text'          => __('« Previous', 'wp-splashing'),
-                                'next_text'          => __('Next »', 'wp-splashing'),
-                                'type'               => 'plain',
-                                'add_args'           => false,
-                            );
-                            echo '<div class="splashing-pagination">';
-                            echo paginate_links( $args );
-                            echo '</div>';
-                        }
 					} else {
 						echo "NO RESULTS";
 					} ?>
 
 				</div>
+				<?php
+				if(isset($data['pagination'])) {
+					$args = array(
+						'base' 				 => preg_replace('/\?.*/', '', get_pagenum_link()) . '%_%',
+						'format'             => '?paged=%#%',
+						'total'              => $data['pagination']['total_pages'],
+						'current'            => $_GET['paged'],
+						'show_all'           => false,
+						'end_size'           => 2,
+						'mid_size'           => 3,
+						'prev_next'          => true,
+						'prev_text'          => __('« Previous', 'wp-splashing'),
+						'next_text'          => __('Next »', 'wp-splashing'),
+						'type'               => 'plain',
+						'add_args'           => false,
+					);
+					echo '<div class="splashing-pagination">';
+					echo paginate_links( $args );
+					echo '</div>';
+				}
+
+
+				?>
 			</div>
 			<div id="postbox-container-1" class="postbox-container">
 				<div class="postbox">
