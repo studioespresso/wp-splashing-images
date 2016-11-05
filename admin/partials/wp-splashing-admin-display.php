@@ -15,7 +15,7 @@
 
 <div class="wrap">
     <h1>
-		<?php _e('Splashing Images', 'wp-splashing')?>
+		<?php _e('Splashing Images', 'wp-splashing-images')?>
 		<span style="filter: grayscale(100%);">&#128247; </span>
 	</h1>
     <div id="poststuff">
@@ -25,9 +25,9 @@
 					<div class="media-toolbar-primary">
 					</div>
                     <div class="media-toolbar-primary">
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing'); ?>"><span style="color: red;">&hearts; </span><?php _e('Popular', 'wp-splashing'); ?></a>
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="button btn--inline" alt="<?php _e('Shows the 25 last added images', 'wp-splashing'); ?>"><?php _e('&#128349; Last added', 'wp-splashing'); ?></a>
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><span style="color: gold;">&#9733; </span><?php _e('Surprise me :)', 'wp-splashing'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Popular', 'wp-splashing-images'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="button btn--inline" alt="<?php _e('Shows the 25 last added images', 'wp-splashing-images'); ?>"><?php _e('&#128349; Last added', 'wp-splashing-images'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#9733; </span><?php _e('Surprise me :)', 'wp-splashing-images'); ?></a>
                     </div>
                     <div class="media-toolbar-secondary">
 
@@ -37,7 +37,7 @@
 						<input type="hidden" name="action" value="wp_splashing_search">
 						<input type="hidden" name="paged" value="1">
 						<input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
-						<input type="submit" id="search-submit" class="button" value="<?php _e('&#128269; Search Unsplash','wp-splashing');?>">
+						<input type="submit" id="search-submit" class="button" value="<?php _e('&#128269; Search Unsplash','wp-splashing-images');?>">
 					</form>
 					</div>
 				</div>
@@ -80,8 +80,8 @@
 						'end_size'           => 2,
 						'mid_size'           => 3,
 						'prev_next'          => true,
-						'prev_text'          => __('« Previous', 'wp-splashing'),
-						'next_text'          => __('Next »', 'wp-splashing'),
+						'prev_text'          => __('« Previous', 'wp-splashing-images'),
+						'next_text'          => __('Next »', 'wp-splashing-images'),
 						'type'               => 'plain',
 						'add_args'           => false,
 					);
@@ -95,16 +95,16 @@
 			</div>
 			<div id="postbox-container-1" class="postbox-container">
 				<div class="postbox">
-					<h2 class="hndle splashing"><?php _e('Powered by Unsplash', 'wp-splashing'); ?></h2>
+					<h2 class="hndle splashing"><?php _e('Powered by Unsplash', 'wp-splashing-images'); ?></h2>
 					<div class="inside">
-						<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing'); ?></p>
-						<h3><?php _e('Unsplash License', 'wp-splashing'); ?></h3>
-						<p><?php _e('All photos published on Unsplash are licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero</a> which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.', 'wp-splashing'); ?></p>
+						<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing-images'); ?></p>
+						<h3><?php _e('Unsplash License', 'wp-splashing-images'); ?></h3>
+						<p><?php _e('All photos published on Unsplash are licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero</a> which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.', 'wp-splashing-images'); ?></p>
 					</div>
 					<hr>
 					<div class="inside">
-						<h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing'); ?> <span style="color: red;">&hearts;</span></h3>
-						<p><?php _e("We'd love to hear what you think about the plugin so feel free to get in touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> or <a href='https://wordpress.org/support/plugin/wp-splashing-images' target='_blank'>questions</a>", "wp-splashing"); ?></p>
+						<h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing-images'); ?> <span style="color: red;">&hearts;</span></h3>
+						<p><?php _e("We'd love to hear what you think about the plugin so feel free to get in touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> or <a href='https://wordpress.org/support/plugin/wp-splashing-images' target='_blank'>questions</a>", "wp-splashing-images"); ?></p>
 					</div>
 				</div>
 			</div>
