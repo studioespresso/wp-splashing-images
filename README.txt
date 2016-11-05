@@ -20,7 +20,7 @@ Note: this plugin is not affiliated with unsplash.com.
 
 == Installation ==
 
-1. Upload `wp-splashing.php` to the `/wp-content/plugins/` directory
+1. Upload the `wp-splashing-images` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. You can find the 'Splashing Images' option under 'Media'
 4. Click one of the images to add it to your media library
