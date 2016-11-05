@@ -1,0 +1,132 @@
+# Copyright (C) 2016 Splashing Images
+# This file is distributed under the same license as the Splashing Images package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Splashing Images 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-splashing-"
+"images\n"
+"POT-Creation-Date: 2016-11-05 09:54:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/class-wp-splashing-admin.php:103
+#: admin/class-wp-splashing-admin.php:126
+msgid "Unable to save image, check your server permissions."
+msgstr ""
+
+#: admin/class-wp-splashing-admin.php:134
+msgid "Photo by "
+msgstr ""
+
+#: admin/class-wp-splashing-admin.php:141
+msgid "Something went wrong saving the image."
+msgstr ""
+
+#: admin/class-wp-splashing-admin.php:152
+msgid "File successfully uploaded to media library."
+msgstr ""
+
+#: admin/class-wp-splashing-admin.php:160
+msgid "Nothing to delete, file does not exist"
+msgstr ""
+
+#. #-#-#-#-#  wp-splashing-images.pot (Splashing Images 1.0.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: admin/partials/wp-splashing-admin-display.php:18
+msgid "Splashing Images"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:28
+msgid "25 most popular photos on Unsplash"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:28
+msgid "Popular"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:29
+msgid "Shows the 25 last added images"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:29
+msgid "&#128349; Last added"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:30
+msgid "Shows 25 random images"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:30
+msgid "Surprise me :)"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:40
+msgid "&#128269; Search Unsplash"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:77
+msgid "« Previous"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:78
+msgid "Next »"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:94
+msgid "Powered by Unsplash"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:96
+msgid ""
+"Splashing Images is powered by <a href=\"http://unsplash.com\">unsplash.com</"
+"a> and the Unsplash API."
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:97
+msgid "Unsplash License"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:98
+msgid ""
+"All photos published on Unsplash are licensed under <a href=\"https://"
+"creativecommons.org/publicdomain/zero/1.0/\">Creative Commons Zero</a> which "
+"means you can copy, modify, distribute and use the photos for free, "
+"including commercial purposes, without asking permission from or providing "
+"attribution to the photographer or Unsplash."
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:102
+msgid ""
+"By <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+"utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+"\"_blank\">studioespresso.co</a>, with"
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-display.php:103
+msgid ""
+"We'd love to hear what you think about the plugin so feel free to get in "
+"touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> "
+"or <a href='https://wordpress.org/support/plugin/wp-splashing-images' "
+"target='_blank'>questions</a>"
+msgstr ""
+
+#. #-#-#-#-#  wp-splashing-images.pot (Splashing Images 1.0.0)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  wp-splashing-images.pot (Splashing Images 1.0.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://studioespresso.co"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Unsplash.com photos, right in your dashboard. Add photos with one click and "
+"use them in your content right away."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Studio Espresso"
+msgstr ""
