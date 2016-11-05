@@ -20,7 +20,7 @@
 	</h1>
     <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
-			<div id="splashing_images" style="position: relative;" class="postbox-container">
+			<div id="wp-splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
 					<div class="media-toolbar-primary">
 					</div>
@@ -56,12 +56,12 @@
 						$images = $this->unsplash->getLastFeatured(24);
 					}
 					if($images != false) {
-						echo '<div class="wrapper">';
+						echo '<div class="wrapper" id="splashing-results">';
 						foreach($images as $image) {
 							$thumb = $image->urls['thumb'];
 							$download = $image->links['download'];
 							$author = $image->user['name'];
-							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
+							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail ms-item" src="' . $thumb .'"></a>';
 						}
 						echo '</div>';
                         if(isset($data['pagination'])) {
@@ -107,3 +107,17 @@
     	</div>
 	</div>
 </div>
+<script type="text/javascript">
+
+	jQuery(window).load(function() {
+
+		// MASSONRY Without jquery
+		var container = document.querySelector('#splashing-images');
+		var msnry = new Masonry( container, {
+			itemSelector: '.splashing-thumbnail',
+		});
+
+	});
+
+
+</script>

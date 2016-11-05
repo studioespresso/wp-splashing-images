@@ -12,13 +12,13 @@ img.splashing-thumbnail {
     max-width: 300px;
     position: relative;
  }
-#splashing_images .media-toolbar-primary {
+#wp-splashing_images .media-toolbar-primary {
     display: inline-block;
     vertical-align: middle;
     padding: 12px 0;
     float: left;
 }
-#splashing_images .media-toolbar-secondary {
+#wp-splashing_images .media-toolbar-secondary {
     display: inline-block;
     vertical-align: middle;
     padding: 12px 0;
@@ -29,7 +29,6 @@ img.splashing-thumbnail {
     background-color: #0073aa;
     color: #ffffff;
 }
-
 
 .wp-filter {
     margin-top: 0px;
