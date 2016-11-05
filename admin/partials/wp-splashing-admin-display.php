@@ -14,7 +14,10 @@
 ?>
 
 <div class="wrap">
-    <h1><?php _e('Splashing Images', 'wp-splashing')?></h1>
+    <h1>
+		<?php _e('Splashing Images', 'wp-splashing')?>
+		<span style="filter: grayscale(100%);">&#128247; </span>
+	</h1>
     <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="splashing_images" style="position: relative;" class="postbox-container">
@@ -93,6 +96,11 @@
 						<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing'); ?></p>
 						<h3><?php _e('Unsplash License', 'wp-splashing'); ?></h3>
 						<p><?php _e('All photos published on Unsplash are licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero</a> which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.', 'wp-splashing'); ?></p>
+					</div>
+					<hr>
+					<div class="inside">
+						<h3>Made by <a href="http://studioespresso.co">studioespresso.co</a></h3>
+						<p></p>
 					</div>
 				</div>
 			</div>
