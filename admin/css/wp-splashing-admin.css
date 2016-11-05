@@ -9,7 +9,7 @@ a.upload {
 img.splashing-thumbnail {
     padding: 10px;
     width: 30%;
-    max-width: 200px;
+    max-width: 300px;
     position: relative;
  }
 #splashing_images .media-toolbar-primary {
@@ -57,8 +57,8 @@ form#splashing-search {
   border-radius: 50%;
   stroke-width: 2;
   stroke: #fff;
-  left: 90px;
-  top: -120px;
+  left: 110px;
+  top: -145px;
   z-index: 11;
   position: absolute;
   stroke-miterlimit: 10;
