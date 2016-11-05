@@ -48,7 +48,7 @@
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'latest') {
                         $images = $this->unsplash->getLatest(25);
                     } elseif(isset($_GET['mode']) && $_GET['mode'] == 'popular') {
-                        $images = $this->unsplash->getLatest(25);
+                        $images = $this->unsplash->getPopular(25);
                     } else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
