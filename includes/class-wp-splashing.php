@@ -124,7 +124,13 @@ class Wp_Splashing {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-splashing-public.php';
 
-		$this->loader = new Wp_Splashing_Loader();
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-splashing-extra.php';
+
+
+        $extra = new WP_Splashing_extras();
+        $extra->setup();
+
+        $this->loader = new Wp_Splashing_Loader();
 
 	}
 
