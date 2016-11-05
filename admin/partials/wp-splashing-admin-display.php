@@ -99,7 +99,7 @@
 					</div>
 					<hr>
 					<div class="inside">
-						<h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">studioespresso.co</a>, with', 'wp-splashing'); ?> <span style="color: red;">&hearts;</span></h3>
+						<h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing'); ?> <span style="color: red;">&hearts;</span></h3>
 						<p><?php _e("We'd love to hear what you think about the plugin so feel free to get in touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> or <a href='https://wordpress.org/support/plugin/wp-splashing-images' target='_blank'>questions</a>", "wp-splashing"); ?></p>
 					</div>
 				</div>
