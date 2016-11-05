@@ -68,7 +68,7 @@ class Wp_Splashing {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'wp-splashing';
+		$this->plugin_name = 'wp-splashing-images';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
