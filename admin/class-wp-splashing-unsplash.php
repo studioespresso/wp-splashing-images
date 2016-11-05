@@ -86,9 +86,15 @@ class Wp_Splashing_Unsplash {
     }
 
     public function getPopular($count = 25) {
-        $this->setup();
-        $images = Crew\Unsplash\Photo::all($page = 1, $per_page = $count, $orderby = 'popular');
-        return $images;
+        if(get_transient('splashing_latest')) {
+            return unserialize(get_transient('splashing_latest'));
+        } else {
+            $this->setup();
+            $images = Crew\Unsplash\Photo::all($page = 1, $per_page = $count, $orderby = 'popular');
+            set_transient('splashing_latest', $images, 6 * HOUR_IN_SECONDS);
+            return $images;
+
+        }
     }
 
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
