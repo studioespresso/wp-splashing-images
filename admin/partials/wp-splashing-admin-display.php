@@ -99,8 +99,8 @@
 					</div>
 					<hr>
 					<div class="inside">
-						<h3>Made by <a href="http://studioespresso.co">studioespresso.co</a></h3>
-						<p></p>
+						<h3>By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">studioespresso.co</a>, with <span style="color: red;">&hearts;</span></h3>
+						<p>We'd love to hear what you think about the plugin so feel free to get in touch with your <a href="mailto:support@studioespresso.co">suggestions</a> or <a href="https://wordpress.org/support/plugin/wp-splashing-images" target="_blank">questions</a>.</p>
 					</div>
 				</div>
 			</div>
