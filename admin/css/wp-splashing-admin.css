@@ -25,6 +25,10 @@ img.splashing-thumbnail {
     float: right;
 }
 
+#wp-splashing_images .media-toolbar-secondary input#post-search-input {
+    width: 150px;
+}
+
 #splashing_images h2.hndle.splashing {
     background-color: #0073aa;
     color: #ffffff;
