@@ -22,9 +22,9 @@
 					<div class="media-toolbar-primary">
 					</div>
                     <div class="media-toolbar-primary">
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing'); ?>"><?php _e('&hearts;	 Popular', 'wp-splashing'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing'); ?>"><span style="color: red;">&hearts; </span><?php _e('Popular', 'wp-splashing'); ?></a>
                         <a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="button btn--inline" alt="<?php _e('Shows the 25 last added images', 'wp-splashing'); ?>"><?php _e('&#128349; Last added', 'wp-splashing'); ?></a>
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><?php _e('&#9733; Surprise me :)', 'wp-splashing'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing'); ?>"><span style="color: gold;">&#9733; </span><?php _e('Surprise me :)', 'wp-splashing'); ?></a>
                     </div>
                     <div class="media-toolbar-secondary">
 
