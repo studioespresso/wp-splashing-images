@@ -12,20 +12,20 @@ img.splashing-thumbnail {
     max-width: 200px;
     position: relative;
  }
-.media-toolbar-primary {
+#splashing_images .media-toolbar-primary {
     display: inline-block;
     vertical-align: middle;
     padding: 12px 0;
     float: left;
 }
-.media-toolbar-secondary {
+#splashing_images .media-toolbar-secondary {
     display: inline-block;
     vertical-align: middle;
     padding: 12px 0;
     float: right;
 }
 
-h2.hndle.splashing {
+#splashing_images h2.hndle.splashing {
     background-color: #0073aa;
     color: #ffffff;
 }
