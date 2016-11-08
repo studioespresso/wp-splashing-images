@@ -115,13 +115,13 @@
 
 	jQuery(window).load(function() {
 
-		// MASSONRY Without jquery
-		var container = document.querySelector('#splashing-images');
-		var msnry = new Masonry( container, {
-			itemSelector: '.splashing-thumbnail',
-		});
+		$('#splashing-images').masonry({
+			// options
+			itemSelector : '.splashing-thumbnail',
+			columnWidth : 300,
+			gutterWidth: 20
+		}).masonry('reload');
 
 	});
-
-
+	
 </script>
