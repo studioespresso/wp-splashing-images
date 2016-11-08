@@ -115,13 +115,9 @@
 	jQuery(window).load(function() {
 
 		var $grid = jQuery('#splashing-images').imagesLoaded( function() {
-			// init Masonry after all images have loaded
 			$grid.masonry({
-				// options...
-				itemSelector: '.splashing-thumbnail',
+				itemSelector: '.splashing-thumbnail'
 			});
 		});
-
 	});
-
 </script>
