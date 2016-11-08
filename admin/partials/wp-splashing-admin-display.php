@@ -112,11 +112,15 @@
 	</div>
 </div>
 <script type="text/javascript">
+	jQuery(window).load(function() {
 
-	var $elem = document.querySelector('#splashing-images');
-	var $wrapper = $elem.Masonry(
-		itemSelector: '.splashing-images'
-	);
-	$wrapper.masonry('reload;')
+
+		// MASSONRY Without jquery
+	var container = document.querySelector('#splashing-images');
+	var msnry = new Masonry( container, {
+		itemSelector: '.splashing-thumbnail',
+	});
+
+	});
 
 </script>
