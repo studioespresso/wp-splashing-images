@@ -113,15 +113,10 @@
 </div>
 <script type="text/javascript">
 
-	jQuery(window).load(function() {
+	var $elem = document.querySelector('#splashing-images');
+	var $wrapper = $elem.Masonry(
+		itemSelector: '.splashing-images'
+	);
+	$wrapper.masonry('reload;')
 
-		$('#splashing-images').masonry({
-			// options
-			itemSelector : '.splashing-thumbnail',
-			columnWidth : 300,
-			gutterWidth: 20
-		}).masonry('reload');
-
-	});
-	
 </script>
