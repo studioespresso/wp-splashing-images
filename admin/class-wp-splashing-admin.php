@@ -73,6 +73,7 @@ class Wp_Splashing_Admin {
      */
     public function enqueue_scripts() {
         wp_enqueue_script( $this->plugin_name . '-spin', plugin_dir_url( __FILE__ ) . 'js/wp-splashing-loadingoverlay.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name . '-imagesloaded', plugin_dir_url( __FILE__ ) . 'js/imagesloaded.pkgd.min.js', array('jquery'), $this->version, false );
         wp_enqueue_script( $this->plugin_name . '-masonry', plugin_dir_url( __FILE__ ) . 'js/masonry.pkgd.min.js', array('jquery'), $this->version, false );
 
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-splashing-admin.js', array( 'jquery' ), $this->version, false );

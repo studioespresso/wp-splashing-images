@@ -114,12 +114,13 @@
 <script type="text/javascript">
 	jQuery(window).load(function() {
 
-
-		// MASSONRY Without jquery
-	var container = document.querySelector('#splashing-images');
-	var msnry = new Masonry( container, {
-		itemSelector: '.splashing-thumbnail',
-	});
+		var $grid = jQuery('#splashing-images').imagesLoaded( function() {
+			// init Masonry after all images have loaded
+			$grid.masonry({
+				// options...
+				itemSelector: '.splashing-thumbnail',
+			});
+		});
 
 	});
 
