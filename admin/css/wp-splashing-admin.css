@@ -58,9 +58,7 @@ form#splashing-search {
   border-radius: 50%;
   stroke-width: 2;
   stroke: #fff;
-  left: 110px;
-  top: -145px;
-  z-index: 11;
+  z-index: 110;
   position: absolute;
   stroke-miterlimit: 10;
   margin: 10% auto;
