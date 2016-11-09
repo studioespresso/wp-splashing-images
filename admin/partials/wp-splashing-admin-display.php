@@ -61,7 +61,7 @@
 							$thumb = $image->urls['thumb'];
 							$download = $image->links['download'];
 							$author = $image->user['name'];
-							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail ms-item" src="' . $thumb .'"></a>';
+							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail" src="' . $thumb .'"></a>';
 						}
 						echo '</div>';
 					} else {
