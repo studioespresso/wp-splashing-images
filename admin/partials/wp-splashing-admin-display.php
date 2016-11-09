@@ -112,12 +112,14 @@
 	</div>
 </div>
 <script type="text/javascript">
-	jQuery(window).load(function() {
 
-		var $grid = jQuery('#splashing-images').imagesLoaded( function() {
-			$grid.masonry({
-				itemSelector: '.splashing-thumbnail'
-			});
+	jQuery(document).ready(function() {
+		var $grid = jQuery('#splashing-images').masonry({
+			itemSelector: '.splashing-thumbnail'
+		}).masonry('reloadItems');
+
+		$grid.imagesLoaded().progress( function() {
+			$grid.masonry('layout');
 		});
 	});
 </script>
