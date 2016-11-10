@@ -115,12 +115,12 @@
 
 	jQuery(document).ready(function() {
 		var $grid = jQuery('#splashing-images').masonry({
-			itemSelector: '.splashing-thumbnail'
+			itemSelector: 'a.upload'
 		});
 
 		$grid.imagesLoaded().progress( function() {
 			$grid.masonry('layout');
 		});
-		
+
 	});
 </script>
