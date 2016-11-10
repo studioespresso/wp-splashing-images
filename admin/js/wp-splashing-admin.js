@@ -31,9 +31,11 @@ jQuery(document).ready(function($) {
                     nonce: settings.wp_splashing_admin_nonce,
                 },
                 beforeSend: function() {
+                    console.log('Submitting image for download');
                     image.LoadingOverlay("show");
                 },
-                success: function(response) {
+                success: function(response) {                                               
+                    console.log(response); 
                     image.LoadingOverlay("hide");
                 },
                 error: function(xhr, status, error) {

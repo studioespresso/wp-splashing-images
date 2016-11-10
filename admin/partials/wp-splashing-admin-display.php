@@ -121,6 +121,6 @@
 		$grid.imagesLoaded().progress( function() {
 			$grid.masonry('layout');
 		});
-
+		
 	});
 </script>
