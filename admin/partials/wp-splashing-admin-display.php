@@ -61,11 +61,15 @@
 							$thumb = $image->urls['thumb'];
 							$download = $image->links['download'];
 							$author = $image->user['name'];
-							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '"><img class="splashing-thumbnail ms-item" src="' . $thumb .'"></a>';
+							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '">
+								<img class="splashing-thumbnail ms-item" src="' . $thumb .'">
+							</a>';
 						}
 						echo '</div>';
 					} else {
-						echo "NO RESULTS";
+
+
+						echo '<div><p>' . sprintf( __('Looks like me couldn\'t find any images for <strong><em>%1$s</em></strong>, try searching for something else or surprise yourself.','wp-splashing-images'), $_GET['search']) . '</p></div>';
 					} ?>
 
 				</div>
