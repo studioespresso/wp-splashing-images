@@ -18,16 +18,34 @@
 		<?php _e('Splashing Images', 'wp-splashing-images')?>
 		<span style="filter: grayscale(100%);">&#128247; </span>
 	</h1>
-    <div id="poststuff">
+		<?php if($_GET['session']) {
+
+			$data = unserialize(base64_decode($_GET['session']));
+			$this->unsplash->saveTokens($data['token']);
+			$user = $this->unsplash->getUser(); ?>
+			<div class="notice inline notice-info notice-alt">
+				<p>
+					<?php
+					echo sprintf( __('You\'re now connected to Unsplash as <a href="%1$s" target="_blank">%2$s</a>', 'wp-splashing-image'), $user->links['html'], $user->username);
+					?>
+				</p>
+			</div>
+<?php } ?>
+
+	<div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="wp-splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
 					<div class="media-toolbar-primary">
 					</div>
                     <div class="media-toolbar-primary">
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Popular', 'wp-splashing-images'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="button btn--inline" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing-images'); ?>"><span style="color: green;">&#8599; </span><?php _e('Popular', 'wp-splashing-images'); ?></a>
                         <a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="button btn--inline" alt="<?php _e('Shows the 25 last added images', 'wp-splashing-images'); ?>"><?php _e('&#128349; Last added', 'wp-splashing-images'); ?></a>
-                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#9733; </span><?php _e('Surprise me :)', 'wp-splashing-images'); ?></a>
+                        <a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#9786; </span><?php _e('Surprise me :)', 'wp-splashing-images'); ?></a>
+						<?php if($this->unsplash->isUnsplashUser()) { ?>
+						<a href="/wp-admin/upload.php?page=wp-splashing&mode=liked" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Photos I like', 'wp-splashing-images'); ?></a>
+							<a href="/wp-admin/upload.php?page=wp-splashing&mode=mine" class="button btn--inline" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#128100; </span><?php _e('My photos', 'wp-splashing-images'); ?></a>
+							<?php } ?>
                     </div>
                     <div class="media-toolbar-secondary">
 
@@ -52,7 +70,11 @@
                         $images = $this->unsplash->getLatest(25);
                     } elseif(isset($_GET['mode']) && $_GET['mode'] == 'popular') {
                         $images = $this->unsplash->getPopular(25);
-                    } else {
+                    } elseif(isset($_GET['mode']) && $_GET['mode'] == 'liked') {
+						$images = $this->unsplash->getLiked(1, 100);
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'mine') {
+						$images = $this->unsplash->getOwnImages(1, 100);
+					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
 					if($images != false) {
@@ -93,25 +115,9 @@
 					echo paginate_links( $args );
 					echo '</div>';
 				}
-
-
 				?>
 			</div>
-			<div id="postbox-container-1" class="postbox-container">
-				<div class="postbox">
-					<h2 class="hndle splashing"><?php _e('Powered by Unsplash', 'wp-splashing-images'); ?></h2>
-					<div class="inside">
-						<p><?php _e('Splashing Images is powered by <a href="http://unsplash.com">unsplash.com</a> and the Unsplash API.', 'wp-splashing-images'); ?></p>
-						<h3><?php _e('Unsplash License', 'wp-splashing-images'); ?></h3>
-						<p><?php _e('All photos published on Unsplash are licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero</a> which means you can copy, modify, distribute and use the photos for free, including commercial purposes, without asking permission from or providing attribution to the photographer or Unsplash.', 'wp-splashing-images'); ?></p>
-					</div>
-					<hr>
-					<div class="inside">
-						<h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing-images'); ?> <span style="color: red;">&hearts;</span></h3>
-						<p><?php _e("We'd love to hear what you think about the plugin so feel free to get in touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> or <a href='https://wordpress.org/support/plugin/wp-splashing-images' target='_blank'>questions</a>", "wp-splashing-images"); ?></p>
-					</div>
-				</div>
-			</div>
+			<?php require(plugin_dir_path( __FILE__ ) . 'wp-splashing-admin-sidebar.php'); ?>
     	</div>
 	</div>
 </div>

@@ -19,6 +19,9 @@
  */
 class Wp_Splashing_Unsplash {
 
+
+    const REDIRECT_URL = "https://studioespresso.co/wp-splashing";
+
 	/**
 	 * The ID of this plugin.
 	 *
@@ -58,6 +61,44 @@ class Wp_Splashing_Unsplash {
         ));
 	}
 
+	public function setupWithUser() {
+        return Crew\Unsplash\HttpClient::init(
+            array(
+            'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4',
+            ),
+            array(
+                'access_token' => $this->getAccessToken(),
+                'expires_in' => 300000,
+            )
+        );
+    }
+
+    public function getAuthUrl() {
+        $url = self::REDIRECT_URL . '?redirect=' . admin_url() . 'upload.php?page=wp-splashing';
+        return $url;
+    }
+
+    public function saveTokens($session) {
+        update_option('splashing_access_token', $session->getToken());
+    }
+
+    public function isUnsplashUser() {
+        if(get_option('splashing_access_token', null)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function getAccessToken() {
+        return get_option('splashing_access_token', null);
+    }
+
+    public function getUser() {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        return $user;
+    }
+
 	public function getLastFeatured($count = 10) {
 	    if(get_transient('splashing_featured')) {
 	        return unserialize(get_transient('splashing_featured'));
@@ -95,6 +136,20 @@ class Wp_Splashing_Unsplash {
             return $images;
 
         }
+    }
+
+    public function getLiked($page = 1, $count = 25) {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        $result = Crew\Unsplash\User::find($user->username)->likes($page, $count);
+        return $result;
+    }
+
+    public function getOwnImages($page = 1, $count = 25) {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        $result = Crew\Unsplash\User::find($user->username)->photos($page, $count);
+        return $result;
     }
 
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
