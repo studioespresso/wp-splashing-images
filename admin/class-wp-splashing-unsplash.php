@@ -82,6 +82,13 @@ class Wp_Splashing_Unsplash {
         update_option('splashing_access_token', $session->getToken());
     }
 
+    public function isUnsplashUser() {
+        if(get_option('splashing_access_token', null)) {
+            return true;
+        }
+        return false;
+    }
+
     public function getAccessToken() {
         return get_option('splashing_access_token', null);
     }
@@ -129,6 +136,20 @@ class Wp_Splashing_Unsplash {
             return $images;
 
         }
+    }
+
+    public function getLiked($page = 1, $count = 25) {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        $result = Crew\Unsplash\User::find($user->username)->likes($page, $count);
+        return $result;
+    }
+
+    public function getOwnImages($page = 1, $count = 25) {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        $result = Crew\Unsplash\User::find($user->username)->photos($page, $count);
+        return $result;
     }
 
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
