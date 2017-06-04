@@ -18,7 +18,21 @@
 		<?php _e('Splashing Images', 'wp-splashing-images')?>
 		<span style="filter: grayscale(100%);">&#128247; </span>
 	</h1>
-    <div id="poststuff">
+		<?php if($_GET['session']) {
+
+			$data = unserialize(base64_decode($_GET['session']));
+			$this->unsplash->saveTokens($data['token']);
+			$user = $this->unsplash->getUser(); ?>
+			<div class="notice inline notice-info notice-alt">
+				<p>
+					<?php
+					echo sprintf( __('You\'re now connected to Unsplash as <a href="%1$s" target="_blank">%2$s</a>', 'wp-splashing-image'), $user->links['html'], $user->username);
+					?>
+				</p>
+			</div>
+<?php } ?>
+
+	<div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
 			<div id="wp-splashing_images" style="position: relative;" class="postbox-container">
 				<div class="media-toolbar wp-filter">
@@ -93,11 +107,28 @@
 					echo paginate_links( $args );
 					echo '</div>';
 				}
-
-
 				?>
 			</div>
 			<div id="postbox-container-1" class="postbox-container">
+				<div class="postbox">
+					<h2 class="hndle oauth"><?php _e('Personalize your images', 'wp-splashing-images'); ?></h2>
+					<div class="inside">
+						If you have an Unsplash account, you can connect it here to get access to your collections.
+						<?php if($this->unsplash->getAccessToken()) {
+							$user = $this->unsplash->getUser(); ?>
+							<p>
+								<?php
+								echo sprintf( __('Logged in as <a href="%1$s" target="_blank">%2$s</a>', 'wp-splashing-image'), $user->links['html'], $user->username);
+								?>
+							</p>
+						<?php } else { ?>
+						<p>
+							<a href="<?php echo $this->unsplash->getAuthUrl(); ?>" target="_blank" class="button">Connect</a>
+						</p>
+
+							<?php }; ?>
+					</div>
+				</div>
 				<div class="postbox">
 					<h2 class="hndle splashing"><?php _e('Powered by Unsplash', 'wp-splashing-images'); ?></h2>
 					<div class="inside">
