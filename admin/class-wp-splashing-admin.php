@@ -87,7 +87,7 @@ class Wp_Splashing_Admin {
     public function wp_splashing_settings_page() {
         if (version_compare(phpversion(), "5.5.0", ">=")) {
             // you're on 5.5.0 or later
-            require('partials/wp-splashing-admin-display.php');
+            require('partials/wp-splashing-admin-main.php');
         } else {
             echo "<div class='wrap'></div><h1>" . __('Splashing Images', 'wp-splashing-images') . " <span style='filter: grayscale(100%);'>&#128247; </span></h1>";
             echo "<p>" . __('Looks like your server\'s version of PHP is too old to run this plugin.</p><p>Splashing Images requires PHP 5.5 or higher. If you have any questions, feel free to <a href="mailto:support@studioespresso.co">get in touch</a> and we\'ll try to help you out in any way we can.</p>' , 'wp-splashing-images') . "</p></div>";
