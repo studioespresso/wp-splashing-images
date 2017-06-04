@@ -2,7 +2,7 @@
     <div class="postbox">
         <h2 class="hndle oauth"><?php _e('Personalize your images', 'wp-splashing-images'); ?></h2>
         <div class="inside">
-            If you have an Unsplash account, you can connect it here to get access to your collections.
+            If you have an Unsplash account, you can connect it here to get access to your own images, the images you like on Unsplash and your collections.
             <?php if ($this->unsplash->getAccessToken()) {
                 $user = $this->unsplash->getUser();
                 ?>
