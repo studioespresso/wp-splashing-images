@@ -89,6 +89,12 @@ class Wp_Splashing_Unsplash {
         return false;
     }
 
+    public function userHasCollections() {
+        $user = $this->getUser();
+        $collections = $user->collections();
+        return count($collections) > 0 ? true : false;
+    }
+
     public function getAccessToken() {
         return get_option('splashing_access_token', null);
     }
