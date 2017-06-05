@@ -1,8 +1,25 @@
 <div id="postbox-container-1" class="postbox-container">
     <div class="postbox">
+
+        <div class="inside">
+            <div class="media-toolbar-search-splashing">
+
+                <form id="splashing-search" method="get" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                    <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
+                    <input type="search" id="post-search-input-splashing" name="search" value="<?php echo $_GET['search']; ?>" placeholder="Search unsplash.com">
+                    <input type="hidden" name="action" value="wp_splashing_search">
+                    <input type="hidden" name="paged" value="1">
+                    <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
+                    <input type="submit" id="search-submit-splashing" class="button" value="<?php _e('&#128269;', 'wp-splashing-images'); ?>">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="postbox">
         <h2 class="hndle oauth"><?php _e('Personalize your images', 'wp-splashing-images'); ?></h2>
         <div class="inside">
-            If you have an Unsplash account, you can connect it here to get access to your own images, the images you like on Unsplash and your collections.
+            If you have an Unsplash account, you can connect it here to get access to your own images and the images you
+            liked on Unsplash.
             <?php if ($this->unsplash->getAccessToken()) {
                 $user = $this->unsplash->getUser();
                 ?>
@@ -28,7 +45,7 @@
         </div>
         <hr>
         <div class="inside">
-            <h3><?php _e('By <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing-images'); ?>
+            <h3><?php _e('From <a href="http://studioespresso.co/en?utm_source=plugin&amp;utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images" target="_blank">Studio Espresso</a>, with', 'wp-splashing-images'); ?>
                 <span style="color: red;">&hearts;</span></h3>
             <p><?php _e("We'd love to hear what you think about the plugin so feel free to get in touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> or <a href='https://wordpress.org/support/plugin/wp-splashing-images' target='_blank'>questions</a>", "wp-splashing-images"); ?></p>
         </div>

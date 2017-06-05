@@ -3,7 +3,11 @@
  * included in this file.
  */
 
-
+input#post-search-input-splashing { width: 200px; }
+input#search-submit-splashing{ height: 30px; float: right;}
+div.media-toolbar-search-splashing {
+    margin-top: 13px;
+}
 img.splashing-thumbnail {
     padding: 10px;
     width: 30%;
