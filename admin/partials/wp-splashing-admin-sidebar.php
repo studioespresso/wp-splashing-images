@@ -23,10 +23,12 @@
             <?php if ($this->unsplash->getAccessToken()) {
                 $user = $this->unsplash->getUser();
                 ?>
-                <p>
+                <p><strong>
                     <?php
-                    echo sprintf(__('Logged in as <a href="%1$s" target="_blank">%2$s</a>. <a href="%3$s">Disconnect?</a>', 'wp-splashing-image'), $user->links['html'], $user->username, admin_url() . 'upload.php?page=wp-splashing&disconnect=true');
-                    ?>
+                    echo sprintf(__('Logged in as <a href="%1$s" target="_blank">%2$s</a>.', 'wp-splashing-images'), $user->links['html'], $user->username); ?>
+                    </strong>
+                    <?php echo sprintf(__('<a href="%1$s">Disconnect?</a>', 'wp-splashing-images'), admin_url() . 'upload.php?page=wp-splashing&disconnect=true'); ?>
+
                 </p>
             <?php } else { ?>
                 <p>
