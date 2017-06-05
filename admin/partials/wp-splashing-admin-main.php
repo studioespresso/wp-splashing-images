@@ -41,7 +41,7 @@
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=liked" class="nav-tab <?php echo $_GET['mode'] == 'liked' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Photos I like', 'wp-splashing-images'); ?></a>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=mine" class="nav-tab <?php echo $_GET['mode'] == 'mine' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#128100; </span><?php _e('My photos', 'wp-splashing-images'); ?></a>
 			<?php if($this->unsplash->userHasCollections()) { ?>
-				<a href="/wp-admin/upload.php?page=wp-splashing&mode=collections" class="nav-tab <?php echo $_GET['mode'] == 'collections' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: orangered;">&#9889; </span><?php _e('Your Collections', 'wp-splashing-images'); ?></a>
+				<a href="/wp-admin/upload.php?page=wp-splashing&mode=collections" class="nav-tab <?php echo $_GET['mode'] == 'collections' || $_GET['mode'] == 'collection' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: orangered;">&#9889; </span><?php _e('Your Collections', 'wp-splashing-images'); ?></a>
 			<?php } ?>
 		<?php } ?>
 
@@ -64,6 +64,10 @@
 						$images = $this->unsplash->getLiked(1, 100);
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'mine') {
 						$images = $this->unsplash->getOwnImages(1, 100);
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'collections') {
+						$collections = $this->unsplash->getCollections();
+					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'collection' && isset($_GET['id'])) {
+						$images = $this->unsplash->getCollection($_GET['id']);
 					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
@@ -78,12 +82,14 @@
 							</a>';
 						}
 						echo '</div>';
-					} else {
-
-
+					} elseif ($collections) {
+						echo '<div class="wrapper" id="splashing-results">';
+						foreach($collections as $collection ){
+							echo '<a href="/wp-admin/upload.php?page=wp-splashing&mode=collection&id=' . $collection['id'] . '"><img src="' . $collection['urls']['thumb'] . '"></a>';
+						}
+					} else  {
 						echo '<div><p>' . sprintf( __('Looks like me couldn\'t find any images for <strong><em>%1$s</em></strong>, try searching for something else or surprise yourself.','wp-splashing-images'), $_GET['search']) . '</p></div>';
 					} ?>
-
 				</div>
 				<?php
 				if(isset($data['pagination'])) {

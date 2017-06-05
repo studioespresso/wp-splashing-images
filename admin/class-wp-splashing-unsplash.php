@@ -145,17 +145,34 @@ class Wp_Splashing_Unsplash {
     }
 
     public function getLiked($page = 1, $count = 25) {
-        $this->setupWithUser();
-        $user = Crew\Unsplash\User::current();
-        $result = Crew\Unsplash\User::find($user->username)->likes($page, $count);
+        $user = $this->getUser();
+        $result = $user->likes($page, $count);
         return $result;
     }
 
     public function getOwnImages($page = 1, $count = 25) {
-        $this->setupWithUser();
-        $user = Crew\Unsplash\User::current();
-        $result = Crew\Unsplash\User::find($user->username)->photos($page, $count);
+        $user = $this->getUser();
+        $result = $user->photos($page, $count);
         return $result;
+    }
+
+    public function getCollections() {
+        $user = $this->getUser();
+        $collections = $user->collections();
+        $results = array();
+
+        foreach($collections as $collection) {
+            $results[$collection->id]['id'] = $collection->id;
+            $results[$collection->id]['urls'] = $collection->cover_photo['urls'];
+        }
+        return $results;
+    }
+
+    public function getCollection($id) {
+        $this->setupWithUser();
+        $collection = Crew\Unsplash\Collection::find($id);
+        //var_dump($collection->photos()); exit;
+        return $collection->photos();
     }
 
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null
