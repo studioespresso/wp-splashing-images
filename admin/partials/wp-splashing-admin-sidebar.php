@@ -18,8 +18,11 @@
     <div class="postbox">
         <h2 class="hndle oauth"><?php _e('Personalize your images', 'wp-splashing-images'); ?></h2>
         <div class="inside">
-            If you have an Unsplash account, you can connect it here to get access to your own images and the images you
-            liked on Unsplash.
+            <?php echo sprintf(__('You can connect your Unsplash account to get access your own images and the images you liked on Unsplash here.', 'wp-splashing-image')); ?>
+
+            <?php if(!$this->unsplash->getAccessToken()) {
+                echo sprintf(__('<p>Don\'t have an account yet? Get one <a href="%1$s">here</a></p>', 'wp-splashing-images'), 'https://unsplash.com/join');
+            } ?>
             <?php if ($this->unsplash->getAccessToken()) {
                 $user = $this->unsplash->getUser();
                 ?>
@@ -28,11 +31,10 @@
                     echo sprintf(__('Logged in as <a href="%1$s" target="_blank">%2$s</a>.', 'wp-splashing-images'), $user->links['html'], $user->username); ?>
                     </strong>
                     <?php echo sprintf(__('<a href="%1$s">Disconnect?</a>', 'wp-splashing-images'), admin_url() . 'upload.php?page=wp-splashing&disconnect=true'); ?>
-
                 </p>
             <?php } else { ?>
                 <p>
-                    <a href="<?php echo $this->unsplash->getAuthUrl(); ?>" target="_blank" class="button">Connect</a>
+                    <a href="<?php echo $this->unsplash->getAuthUrl(); ?>" target="_blank" class="button">Log in with Unsplash</a>
                 </p>
 
             <?php }; ?>
