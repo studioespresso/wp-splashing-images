@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Splashing Images
  * Plugin URI:        http://studioespresso.co
- * Description:       Unsplash.com, right in your dashboard. Add photos with one click and use them in your content right away.
+ * Description:       Unsplash.com), right in your dashboard. Add photos with one click and use them in your content right away.
  * Version:           2.0.0
  * Author:            Studio Espresso
  * Author URI:        http://studioespresso.co
