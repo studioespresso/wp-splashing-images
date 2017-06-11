@@ -3,12 +3,12 @@ Contributors: janhenckens
 Donate link: http://studioespresso.co
 Tags: images, content, media
 Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.0.0
+Tested up to: 4.8.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Unsplash.com photos, right in your dashboard. Add photos with one click and use them in your content right away.
+Unsplash.com, right in your dashboard. Add photos with one click and use them in your content right away.
 
 
 == Description ==
@@ -31,6 +31,9 @@ Note: this plugin is not affiliated with unsplash.com.
 2. You'll see the latest curated images, your can get the latest, most popular or random images. And you can search for a specific subject. When you've found the perfect image, simply click it to add it to the media library
 
 == Changelog ==
+
+= 2.0 =
+* Added support for connecting your Unsplash account. This gives you access to your own images, the images you liked on Unsplash and the collections you created. Big update, and if you use these Unsplash features, I think you'll really enjoy this.
 
 = 1.0 =
 * Initial release. Feel from to drop me a line at jan@studioespresso.co with your feedback :)
