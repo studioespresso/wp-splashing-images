@@ -6,7 +6,7 @@
 
                 <form id="splashing-search" method="get" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-                    <input type="search" id="post-search-input-splashing" name="search" value="<?php echo $_GET['search']; ?>" placeholder="Search unsplash.com">
+                    <input type="search" id="post-search-input-splashing" name="search" value="<?php echo $_GET['search']; ?>" placeholder="<?php _e('Search unsplash.com', 'wp-splashing-images'); ?>">
                     <input type="hidden" name="action" value="wp_splashing_search">
                     <input type="hidden" name="paged" value="1">
                     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">
@@ -18,7 +18,7 @@
     <div class="postbox">
         <h2 class="hndle oauth"><?php _e('Personalize your images', 'wp-splashing-images'); ?></h2>
         <div class="inside">
-            <?php echo sprintf(__('You can connect your Unsplash account to get access your own images and the images you liked on Unsplash here.', 'wp-splashing-image')); ?>
+            <?php echo sprintf(__('You can connect your Unsplash account to get access your own images and the images you liked on Unsplash here.', 'wp-splashing-images')); ?>
 
             <?php if(!$this->unsplash->getAccessToken()) {
                 echo sprintf(__('<p>Don\'t have an account yet? Get one <a href="%1$s">here</a></p>', 'wp-splashing-images'), 'https://unsplash.com/join');
@@ -34,7 +34,7 @@
                 </p>
             <?php } else { ?>
                 <p>
-                    <a href="<?php echo $this->unsplash->getAuthUrl(); ?>" target="_blank" class="button">Log in with Unsplash</a>
+                    <a href="<?php echo $this->unsplash->getAuthUrl(); ?>" target="_blank" class="button"><?php _e('Log in with Unsplash', 'wp-splashing-images'); ?></a>
                 </p>
 
             <?php }; ?>
