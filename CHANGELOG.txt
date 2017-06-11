@@ -1,0 +1,2 @@
+= 1.0 =
+* Initial release. Feel from to drop me a line at jan@studioespresso.co with your feedback :)

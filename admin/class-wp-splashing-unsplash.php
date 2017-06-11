@@ -19,6 +19,9 @@
  */
 class Wp_Splashing_Unsplash {
 
+
+    const REDIRECT_URL = "https://studioespresso.co/wp-splashing";
+
 	/**
 	 * The ID of this plugin.
 	 *
@@ -58,6 +61,50 @@ class Wp_Splashing_Unsplash {
         ));
 	}
 
+	public function setupWithUser() {
+        return Crew\Unsplash\HttpClient::init(
+            array(
+            'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4',
+            ),
+            array(
+                'access_token' => $this->getAccessToken(),
+                'expires_in' => 300000,
+            )
+        );
+    }
+
+    public function getAuthUrl() {
+        $url = self::REDIRECT_URL . '?redirect=' . admin_url() . 'upload.php?page=wp-splashing';
+        return $url;
+    }
+
+    public function saveTokens($session) {
+        update_option('splashing_access_token', $session->getToken());
+    }
+
+    public function isUnsplashUser() {
+        if(get_option('splashing_access_token', null)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function userHasCollections() {
+        $user = $this->getUser();
+        $collections = $user->collections();
+        return count($collections) > 0 ? true : false;
+    }
+
+    public function getAccessToken() {
+        return get_option('splashing_access_token', null);
+    }
+
+    public function getUser() {
+        $this->setupWithUser();
+        $user = Crew\Unsplash\User::current();
+        return $user;
+    }
+
 	public function getLastFeatured($count = 10) {
 	    if(get_transient('splashing_featured')) {
 	        return unserialize(get_transient('splashing_featured'));
@@ -67,6 +114,65 @@ class Wp_Splashing_Unsplash {
             set_transient('splashing_featured', $images, 12 * HOUR_IN_SECONDS);
             return $images;
         }
+    }
+
+    public function getRandom($count = 25) {
+        $this->setup();
+        $data = Crew\Unsplash\Photo::random(
+            array(
+                'count' => $count
+            )
+        );
+        return $data;
+    }
+
+    public function getLatest($count = 25) {
+        $this->setup();
+        $images = Crew\Unsplash\Photo::all($page = 1, $per_page = $count, $orderby = 'latest');
+        return $images;
+    }
+
+    public function getPopular($count = 25) {
+        if(get_transient('splashing_latest')) {
+            return unserialize(get_transient('splashing_latest'));
+        } else {
+            $this->setup();
+            $images = Crew\Unsplash\Photo::all($page = 1, $per_page = $count, $orderby = 'popular');
+            set_transient('splashing_latest', $images, 6 * HOUR_IN_SECONDS);
+            return $images;
+
+        }
+    }
+
+    public function getLiked($page = 1, $count = 25) {
+        $user = $this->getUser();
+        $result = $user->likes($page, $count);
+        return $result;
+    }
+
+    public function getOwnImages($page = 1, $count = 25) {
+        $user = $this->getUser();
+        $result = $user->photos($page, $count);
+        return $result;
+    }
+
+    public function getCollections() {
+        $user = $this->getUser();
+        $collections = $user->collections();
+        $results = array();
+
+        foreach($collections as $collection) {
+            $results[$collection->id]['id'] = $collection->id;
+            $results[$collection->id]['urls'] = $collection->cover_photo['urls'];
+        }
+        return $results;
+    }
+
+    public function getCollection($id) {
+        $this->setupWithUser();
+        $collection = Crew\Unsplash\Collection::find($id);
+        //var_dump($collection->photos()); exit;
+        return $collection->photos();
     }
 
     // $search, $category = null, $page = 1, $per_page = 10, $orientation = null

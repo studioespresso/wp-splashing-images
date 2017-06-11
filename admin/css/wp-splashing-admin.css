@@ -3,34 +3,38 @@
  * included in this file.
  */
 
-a.upload {
-    position: relative;
+input#post-search-input-splashing { width: 200px; }
+input#search-submit-splashing{ height: 30px; float: right;}
+div.media-toolbar-search-splashing {
+    margin-top: 13px;
 }
 img.splashing-thumbnail {
     padding: 10px;
     width: 30%;
-    max-width: 200px;
+    width: 230px;
     position: relative;
- }
-h2.hndle {
-    background-color: #0073aa;
-    color: #ffffff;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
-.wp-filter {
-    margin-top: 0px;
+#wp-splashing_images .media-toolbar-primary {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 0;
+    float: left;
 }
-form#splashing-search {
+#wp-splashing_images .media-toolbar-secondary {
     display: inline-block;
     vertical-align: middle;
     padding: 12px 0;
     float: right;
 }
-.splashing-pagination {
-    text-align: center;
-    font-size: 1.2em;
-}
+
+#wp-splashing_images .media-toolbar-secondary input#post-search-input { width: 150px; }
+#splashing_images h2.hndle.splashing { background-color: #0073aa; color: #ffffff; }
+.wp-filter { margin-top: 0px; }
+.splashing-pagination { text-align: center; font-size: 1.2em; }
 
 .checkmark__circle {
   stroke-dasharray: 166;
@@ -48,8 +52,8 @@ form#splashing-search {
   border-radius: 50%;
   stroke-width: 2;
   stroke: #fff;
-  left: 90px;
-  top: -120px;
+  left: 100px;
+  top: 20%;
   z-index: 11;
   position: absolute;
   stroke-miterlimit: 10;

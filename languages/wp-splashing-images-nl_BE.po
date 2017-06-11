@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Splashing Images\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-splashing-"
+"images\n"
+"POT-Creation-Date: 2017-06-11 14:15+0200\n"
+"PO-Revision-Date: 2017-06-11 14:15+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wp-splashing-images.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. Plugin Name of the plugin/theme
+#: admin/class-wp-splashing-admin.php:95
+#: admin/partials/wp-splashing-admin-main.php:18
+msgid "Splashing Images"
+msgstr "Splashing Images"
+
+#: admin/class-wp-splashing-admin.php:96
+msgid ""
+"Looks like your server's version of PHP is too old to run this plugin.</"
+"p><p>Splashing Images requires PHP 5.5 or higher. If you have any questions, "
+"feel free to <a href=\"mailto:support@studioespresso.co\">get in touch</a> "
+"and we'll try to help you out in any way we can.</p>"
+msgstr ""
+
+#: admin/class-wp-splashing-admin.php:114
+#: admin/class-wp-splashing-admin.php:137
+msgid "Unable to save image, check your server permissions."
+msgstr "Foto kan niet opgeslagen worden, controleer je server instellingen."
+
+#: admin/class-wp-splashing-admin.php:145
+msgid "Photo by "
+msgstr "Foto door"
+
+#: admin/class-wp-splashing-admin.php:152
+msgid "Something went wrong saving the image."
+msgstr "Er ging iets fout bij het bewaren van de foto."
+
+#: admin/class-wp-splashing-admin.php:163
+msgid "File successfully uploaded to media library."
+msgstr "Bestand toegevoegd aan de media bibliotheek."
+
+#: admin/class-wp-splashing-admin.php:171
+msgid "Nothing to delete, file does not exist"
+msgstr "Niets om te verwijderen, dit bestand bestaat niet"
+
+#: admin/partials/wp-splashing-admin-main.php:29
+msgid ""
+"You're now connected to Unsplash as <a href=\"%1$s\" target=\"_blank\">%2$s</"
+"a>"
+msgstr ""
+"Je bent verbonden met Unsplash als <a href=\"%1$s\" target=\"_blank\">%2$s</"
+"a>"
+
+#: admin/partials/wp-splashing-admin-main.php:37
+msgid "25 most popular photos on Unsplash"
+msgstr "Toont de 25 meest populaire foto’s op Unsplash"
+
+#: admin/partials/wp-splashing-admin-main.php:37
+msgid "Popular"
+msgstr "Populair"
+
+#: admin/partials/wp-splashing-admin-main.php:38
+msgid "Shows the 25 last added images"
+msgstr "Toon de 25 laatst toegevoegde foto's"
+
+#: admin/partials/wp-splashing-admin-main.php:38
+msgid "&#128349; Last added"
+msgstr "&#128349; Laatst toegevoegd"
+
+#: admin/partials/wp-splashing-admin-main.php:39
+msgid "Shows 25 random images"
+msgstr "Toont 25 willekeurige foto’s"
+
+#: admin/partials/wp-splashing-admin-main.php:39
+msgid "Surprise me :)"
+msgstr "Verras mij :)"
+
+#: admin/partials/wp-splashing-admin-main.php:41
+msgid "Shows the images you like on unsplash.com"
+msgstr "Toont de foto's die je leuk vond op unsplash.com"
+
+#: admin/partials/wp-splashing-admin-main.php:41
+msgid "Photos you liked"
+msgstr "Foto's die jij leuk vond"
+
+#: admin/partials/wp-splashing-admin-main.php:42
+msgid "Show the photos you added to unsplasho.com"
+msgstr "Toont de foto's die jij toevoegde op unsplash.com"
+
+#: admin/partials/wp-splashing-admin-main.php:42
+msgid "Your photos"
+msgstr "Jouw foto's"
+
+#: admin/partials/wp-splashing-admin-main.php:44
+msgid "Shows an overview of the collections you created on unsplash.com"
+msgstr "Toont een overzicht van jouw collecties op unsplash.com"
+
+#: admin/partials/wp-splashing-admin-main.php:44
+msgid "Your Collections"
+msgstr "Jouw collecties"
+
+#: admin/partials/wp-splashing-admin-main.php:91
+msgid ""
+"Looks like me couldn't find any images for <strong><em>%1$s</em></strong>, "
+"try searching for something else or surprise yourself."
+msgstr ""
+
+#: admin/partials/wp-splashing-admin-main.php:105
+msgid "« Previous"
+msgstr "« Vorige"
+
+#: admin/partials/wp-splashing-admin-main.php:106
+msgid "Next »"
+msgstr "Volgende »"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:9
+msgid "Search unsplash.com"
+msgstr "Zoek op unsplash.com"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:13
+msgid "&#128269;"
+msgstr "&#128269;"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:19
+msgid "Personalize your images"
+msgstr "Personaliseer uw foto's"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:21
+msgid ""
+"You can connect your Unsplash account to get access your own images and the "
+"images you liked on Unsplash here."
+msgstr ""
+"Je kan inloggen met je Unsplash account om je eigen foto's en collecties ook "
+"hier te kunnen gebruiken."
+
+#: admin/partials/wp-splashing-admin-sidebar.php:24
+msgid "<p>Don't have an account yet? Get one <a href=\"%1$s\">here</a></p>"
+msgstr ""
+"<p>Heb je nog geen account? Maak er <a href=\"%1$s\">hier</a> eentje aan.</p>"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:31
+msgid "Logged in as <a href=\"%1$s\" target=\"_blank\">%2$s</a>."
+msgstr "Aangemeld als  <a href=\"%1$s\" target=\"_blank\">%2$s</a>."
+
+#: admin/partials/wp-splashing-admin-sidebar.php:33
+msgid "<a href=\"%1$s\">Disconnect?</a>"
+msgstr "<a href=\"%1$s\">Afmelden?</a>"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:37
+msgid "Log in with Unsplash"
+msgstr "Aanmelden met Unsplash"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:44
+msgid "Powered by Unsplash"
+msgstr "Mogelijk gemaakt door Unsplash"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:46
+msgid ""
+"Splashing Images is powered by <a href=\"http://unsplash.com\">unsplash.com</"
+"a> and the Unsplash API."
+msgstr ""
+"Splashing Images is mogelijk gemaakt door <a href=\"http://unsplash.com"
+"\">unsplash.com</a> en de Unsplash API."
+
+#: admin/partials/wp-splashing-admin-sidebar.php:47
+msgid "Unsplash License"
+msgstr "Unsplash licentie"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:48
+msgid ""
+"All photos published on Unsplash are licensed under <a href=\"https://"
+"creativecommons.org/publicdomain/zero/1.0/\">Creative Commons Zero</a> which "
+"means you can copy, modify, distribute and use the photos for free, "
+"including commercial purposes, without asking permission from or providing "
+"attribution to the photographer or Unsplash."
+msgstr ""
+"Alle foto's gepubliceerd op Unsplash zijn gelicenseerd onder <a href="
+"\"https://creativecommons.org/publicdomain/zero/1.0/\">Creative Commons "
+"Zero</a> wat betekent dat je kunt kopiëren, wijzigen, distribueren en "
+"gebruik maken van de foto's voor gratis, met inbegrip van commerciële "
+"doeleinden, zonder toestemming te vragen van of het verstrekken van "
+"toerekening aan de fotograaf of Unsplash."
+
+#: admin/partials/wp-splashing-admin-sidebar.php:52
+msgid ""
+"From <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+"utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+"\"_blank\">Studio Espresso</a>, with"
+msgstr ""
+"Door <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+"utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+"\"_blank\">Studio Espresso</a>, met"
+
+#: admin/partials/wp-splashing-admin-sidebar.php:54
+msgid ""
+"We'd love to hear what you think about the plugin so feel free to get in "
+"touch with your <a href='mailto:support@studioespresso.co'>suggestions</a> "
+"or <a href='https://wordpress.org/support/plugin/wp-splashing-images' "
+"target='_blank'>questions</a>"
+msgstr ""
+"We willen graag horen wat je denkt over de plugin! Stuur ons je <a "
+"href='mailto:support@studioespresso.co'>suggesties</a> of stel je vragen <a "
+"href='https://wordpress.org/support/plugin/wp-splashing-images' "
+"target='_blank'>vragen</a>."
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://studioespresso.co"
+msgstr "http://studioespresso.co"
+
+#. Description of the plugin/theme
+msgid ""
+"Unsplash.com photos, right in your dashboard. Add photos with one click and "
+"use them in your content right away."
+msgstr ""
+"Unsplash.com foto's, in je dashboard. Voeg foto's to met 1 klik en gebruikt "
+"ze onmiddellijk in je content."
+
+#. Author of the plugin/theme
+msgid "Studio Espresso"
+msgstr "Studio Espresso"
+
+#~ msgid "&#128269; Search Unsplash"
+#~ msgstr "&#128269; Zoek op Unsplash"
+
+#~ msgid ""
+#~ "By <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+#~ "utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+#~ "\"_blank\">Studio Espresso</a>, with"
+#~ msgstr ""
+#~ "Door <a href=\"http://studioespresso.co/en?utm_source=plugin&amp;"
+#~ "utm_medium=plugin_detail&amp;utm_campaign=wp-splashing-images\" target="
+#~ "\"_blank\">Studio Espresso</a>, met "
+
+#~ msgid "Search Unsplash"
+#~ msgstr "Zoeken op Unsplash"
+
+#~ msgid "Unsplash License "
+#~ msgstr "Unsplash licentie"

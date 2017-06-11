@@ -5,7 +5,7 @@ namespace Crew\Unsplash;
 class Photo extends Endpoint
 {
     private $photographer;
-    
+
     /**
      * Retrieve the a photo object from the ID specified
      *
@@ -15,21 +15,21 @@ class Photo extends Endpoint
     public static function find($id)
     {
         $photo = json_decode(self::get("photos/{$id}")->getBody(), true);
-        
+
         return new self($photo);
     }
 
     /**
      * Retrieve all the photos on a specific page.
      * Returns an ArrayObject that contains Photo objects.
-     * 
+     *
      * @param  integer $page Page from which the photos need to be retrieve
      * @param  integer $per_page Number of element in a page
      * @return ArrayObject of Photos
      */
-    public static function all($page = 1, $per_page = 10)
+    public static function all($page = 1, $per_page = 10, $orderby = 'latest')
     {
-        $photos = self::get("photos", ['query' => ['page' => $page, 'per_page' => $per_page]]);
+        $photos = self::get("photos", ['query' => ['page' => $page, 'per_page' => $per_page, 'order_by' => $orderby]]);
 
         $photosArray = self::getArray($photos->getBody(), get_called_class());
 
@@ -85,7 +85,7 @@ class Photo extends Endpoint
 
     /**
      * Create a new photo. The user needs to connect their account and authorize the write_photo permission scope.
-     * 
+     *
      * @param  string $filePath Path of the file to upload
      * @return Photo
      */
@@ -99,7 +99,7 @@ class Photo extends Endpoint
 
         $photo = json_decode(
             self::post(
-                "photos", 
+                "photos",
                 [
                     'multipart' => [['name' => 'photo', 'contents' => $file]],
                     'headers' => ['Content-Length' => filesize($filePath)]
@@ -112,8 +112,8 @@ class Photo extends Endpoint
     }
 
     /**
-     * Retrieve the user that uploaded the photo. 
-     * 
+     * Retrieve the user that uploaded the photo.
+     *
      * @return User
      */
     public function photographer()
@@ -139,14 +139,17 @@ class Photo extends Endpoint
 
         $filters['featured'] = (isset($filters['featured']) && $filters['featured']) ? 'true' : null;
 
-        $photo = json_decode(self::get("photos/random", ['query' => $filters])->getBody(), true);
+        $photos = self::get("photos/random", ['query' => $filters]);
 
-        return new self($photo);
+        $photosArray = self::getArray($photos->getBody(), get_called_class());
+
+        return new ArrayObject($photosArray, $photos->getHeaders());
+
     }
 
     /**
      * Like the photo for the current user
-     * 
+     *
      * @return boolean
      */
     public function like()
@@ -158,7 +161,7 @@ class Photo extends Endpoint
 
     /**
      * Unlike the photo for the current user
-     * 
+     *
      * @return boolean
      */
     public function unlike()

@@ -73,6 +73,8 @@ class Wp_Splashing_Admin {
      */
     public function enqueue_scripts() {
         wp_enqueue_script( $this->plugin_name . '-spin', plugin_dir_url( __FILE__ ) . 'js/wp-splashing-loadingoverlay.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name . '-imagesloaded', plugin_dir_url( __FILE__ ) . 'js/imagesloaded.pkgd.min.js', array('jquery'), $this->version, false );
+        wp_enqueue_script( $this->plugin_name . '-masonry', plugin_dir_url( __FILE__ ) . 'js/masonry.pkgd.min.js', array('jquery'), $this->version, false );
 
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-splashing-admin.js', array( 'jquery' ), $this->version, false );
         wp_localize_script( $this->plugin_name, 'wp_splashing_settings', array(
@@ -83,7 +85,16 @@ class Wp_Splashing_Admin {
     }
 
     public function wp_splashing_settings_page() {
-        require('partials/wp-splashing-admin-display.php');
+        if($_GET['disconnect']) {
+            update_option('splashing_access_token', null);
+        }
+        if (version_compare(phpversion(), "5.5.0", ">=")) {
+            // you're on 5.5.0 or later
+            require('partials/wp-splashing-admin-main.php');
+        } else {
+            echo "<div class='wrap'></div><h1>" . __('Splashing Images', 'wp-splashing-images') . " <span style='filter: grayscale(100%);'>&#128247; </span></h1>";
+            echo "<p>" . __('Looks like your server\'s version of PHP is too old to run this plugin.</p><p>Splashing Images requires PHP 5.5 or higher. If you have any questions, feel free to <a href="mailto:support@studioespresso.co">get in touch</a> and we\'ll try to help you out in any way we can.</p>' , 'wp-splashing-images') . "</p></div>";
+        }
     }
 
     public function wp_splashing_search() {
@@ -131,7 +142,8 @@ class Wp_Splashing_Admin {
         if ($saved_file) {
             $uploadPath = plugins_url('temp/', dirname(__FILE__));
             $file =  $uploadPath . $tmpImage;
-            $splashingImage = media_sideload_image( $file , null, $author );
+	        $credit = __('Photo by ', 'wp-splashing') . $author;
+            $splashingImage = media_sideload_image( $file , null, $credit );
 
             if($splashingImage instanceof WP_Error) {
                 $json = json_encode(
