@@ -36,7 +36,6 @@
 
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="nav-tab <?php echo $_GET['mode'] == 'popular' || ( $_GET['mode'] == '' && !$_GET['search'] ) ? 'nav-tab-active' : ''; ?>" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing-images'); ?>"><span style="color: green;">&#8599; </span><?php _e('Popular', 'wp-splashing-images'); ?></a>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="nav-tab <?php echo $_GET['mode'] == 'latest' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows the 25 last added images', 'wp-splashing-images'); ?>"><?php _e('&#128349; Last added', 'wp-splashing-images'); ?></a>
-		<a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="nav-tab <?php echo $_GET['mode'] == 'random' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#9786; </span><?php _e('Surprise me :)', 'wp-splashing-images'); ?></a>
 		<?php if($this->unsplash->isUnsplashUser()) { ?>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=liked" class="nav-tab <?php echo $_GET['mode'] == 'liked' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows the images you like on unsplash.com', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Photos you liked', 'wp-splashing-images'); ?></a>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=mine" class="nav-tab <?php echo $_GET['mode'] == 'mine' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Show the photos you added to unsplasho.com', 'wp-splashing-images'); ?>"><span style="color: gold;">&#128100; </span><?php _e('Your photos', 'wp-splashing-images'); ?></a>
@@ -54,8 +53,6 @@
 					if(isset($_GET['search'])) {
 						$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
 						$images = $data['results'];
-					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
-                        $images = $this->unsplash->getRandom(25);
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'latest') {
                         $images = $this->unsplash->getLatest(25);
                     } elseif(isset($_GET['mode']) && $_GET['mode'] == 'popular') {
@@ -72,18 +69,20 @@
 						$images = $this->unsplash->getLastFeatured(24);
 					}
 					if($images != false) {
-						echo '<div class="wrapper" id="splashing-results">';
+						echo '<div id="splashing-container">';
 						foreach($images as $image) {
 							$thumb = $image->urls['thumb'];
 							$download = $image->links['download'];
 							$author = $image->user['name'];
-							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '">
-								<img class="splashing-thumbnail ms-item" src="' . $thumb .'">
-							</a>';
+							echo '
+							<div class="splashing" data-id="' . $image->id . '"> 
+								<img src="' . $thumb .'">
+								<span class="attribute"><a href="http://unsplash.com">' . $author .'</a></span>
+							</div>';
 						}
 						echo '</div>';
 					} elseif ($collections) {
-						echo '<div class="wrapper" id="splashing-results">';
+						echo '<div id="splashing-container">';
 						foreach($collections as $collection ){
 							echo '<a href="/wp-admin/upload.php?page=wp-splashing&mode=collection&id=' . $collection['id'] . '"><img src="' . $collection['urls']['thumb'] . '"></a>';
 						}
@@ -118,15 +117,13 @@
 	</div>
 </div>
 <script type="text/javascript">
-
 	jQuery(document).ready(function() {
-		var $grid = jQuery('#splashing-images').masonry({
-			itemSelector: 'a.upload'
-		});
-
-		$grid.imagesLoaded().progress( function() {
-			$grid.masonry('layout');
-		});
-
+        var grid = jQuery('#splashing-container').masonry({
+            itemSelector: 'div.splashing',
+            gutter: 10,
+        });
+        grid.imagesLoaded().progress(function () {
+            grid.masonry();
+        });
 	});
 </script>

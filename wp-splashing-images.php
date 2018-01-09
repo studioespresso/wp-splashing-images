@@ -16,7 +16,7 @@
  * Plugin Name:       Splashing Images
  * Plugin URI:        http://studioespresso.co
  * Description:       Unsplash.com), right in your dashboard. Add photos with one click and use them in your content right away.
- * Version:           2.0.0
+ * Version:           2.1.0
  * Author:            Studio Espresso
  * Author URI:        http://studioespresso.co
  * License:           GPL-2.0+
@@ -26,36 +26,38 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (! defined('WPINC')) {
+    die;
 }
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wp-splashing-activator.php
  */
-function activate_wp_splashing() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-splashing-activator.php';
-	Wp_Splashing_Activator::activate();
+function activate_wp_splashing()
+{
+    require_once plugin_dir_path(__FILE__) . 'includes/class-wp-splashing-activator.php';
+    Wp_Splashing_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wp-splashing-deactivator.php
  */
-function deactivate_wp_splashing() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-splashing-deactivator.php';
-	Wp_Splashing_Deactivator::deactivate();
+function deactivate_wp_splashing()
+{
+    require_once plugin_dir_path(__FILE__) . 'includes/class-wp-splashing-deactivator.php';
+    Wp_Splashing_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wp_splashing' );
-register_deactivation_hook( __FILE__, 'deactivate_wp_splashing' );
+register_activation_hook(__FILE__, 'activate_wp_splashing');
+register_deactivation_hook(__FILE__, 'deactivate_wp_splashing');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-wp-splashing.php';
+require plugin_dir_path(__FILE__) . 'includes/class-wp-splashing.php';
 
 /**
  * Begins execution of the plugin.
@@ -66,10 +68,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wp-splashing.php';
  *
  * @since    1.0.0
  */
-function run_wp_splashing() {
-
-	$plugin = new Wp_Splashing();
-	$plugin->run();
-
+function run_wp_splashing()
+{
+    $plugin = new Wp_Splashing();
+    $plugin->run();
 }
 run_wp_splashing();
