@@ -72,18 +72,20 @@
 						$images = $this->unsplash->getLastFeatured(24);
 					}
 					if($images != false) {
-						echo '<div class="wrapper" id="splashing-results">';
+						echo '<div id="splashing-container">';
 						foreach($images as $image) {
 							$thumb = $image->urls['thumb'];
 							$download = $image->links['download'];
 							$author = $image->user['name'];
-							echo '<a href="" class="upload" data-source="' . $download . '" data-author="' . $author . '">
-								<img class="splashing-thumbnail ms-item" src="' . $thumb .'">
-							</a>';
+							echo '
+							<div class="splashing" data-id="' . $image->id . '"> 
+								<img src="' . $thumb .'">
+								<span class="attribute"><a href="http://unsplash.com">' . $author .'</a></span>
+							</div>';
 						}
 						echo '</div>';
 					} elseif ($collections) {
-						echo '<div class="wrapper" id="splashing-results">';
+						echo '<div id="splashing-container">';
 						foreach($collections as $collection ){
 							echo '<a href="/wp-admin/upload.php?page=wp-splashing&mode=collection&id=' . $collection['id'] . '"><img src="' . $collection['urls']['thumb'] . '"></a>';
 						}
@@ -118,15 +120,13 @@
 	</div>
 </div>
 <script type="text/javascript">
-
 	jQuery(document).ready(function() {
-		var $grid = jQuery('#splashing-images').masonry({
-			itemSelector: 'a.upload'
-		});
-
-		$grid.imagesLoaded().progress( function() {
-			$grid.masonry('layout');
-		});
-
+        var grid = jQuery('#splashing-container').masonry({
+            itemSelector: 'div.splashing',
+            gutter: 10,
+        });
+        grid.imagesLoaded().progress(function () {
+            grid.masonry();
+        });
 	});
 </script>

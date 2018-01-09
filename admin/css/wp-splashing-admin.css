@@ -8,14 +8,24 @@ input#search-submit-splashing{ height: 30px; float: right;}
 div.media-toolbar-search-splashing {
     margin-top: 13px;
 }
-img.splashing-thumbnail {
-    padding: 10px;
-    width: 30%;
-    width: 230px;
+
+.splashing {
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
 }
+.splashing span.attribute {
+    background-color: #0D3349;
+    width: 100%;
+}
+.splashing span.attribute a {
+    position: absolute;
+    text-decoration: none;
+    bottom: 5px;
+    right: 0px;
+    color: white;
+    padding: 3px 5px 3px 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 
 
 #wp-splashing_images .media-toolbar-primary {

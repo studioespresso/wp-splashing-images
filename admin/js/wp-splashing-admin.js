@@ -9,34 +9,32 @@ jQuery(document).ready(function($) {
         size            : "30%"
     });
 
-    $('a.upload').click(function(e){
-         var element = $(this);
-         var image = element.find('img');
-            // If not saving, then proceed
+    $('div.splashing img').click(function (e) {
+        var element = $(this);
+
+        payload = {
+            action: 'wp_splashing_save_image',
+            id: element.parent().data('id'),
+            attr: element.parent().data('attr'),
+            nonce: settings.wp_splashing_admin_nonce,
+        };
+        payload[window.csrfTokenName] = window.csrfTokenValue;
+
         if(!element.hasClass('saving')){
             element.addClass('saving');
             e.preventDefault();
-            var data = $(this).data('source');
-            var author = $(this).data('author');
-            var credit = $(this).data('credit');
             $.ajax({
                 type: 'POST',
                 url: settings.ajax_admin_url,
                 dataType: 'JSON',
-                data: {
-                    action: 'wp_splashing_save_image',
-                    image: data,
-                    author: author,
-                    credit: credit,
-                    nonce: settings.wp_splashing_admin_nonce,
-                },
+                data: payload,
                 beforeSend: function() {
                     console.log('Submitting image for download');
-                    image.LoadingOverlay("show");
+                    element.LoadingOverlay("show");
                 },
                 success: function(response) {                                               
-                    console.log(response); 
-                    image.LoadingOverlay("hide");
+                    console.log(response);
+                    element.LoadingOverlay("hide");
                     var checkmark = '<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>';
                     element.append(checkmark);
                     setTimeout(function() {
