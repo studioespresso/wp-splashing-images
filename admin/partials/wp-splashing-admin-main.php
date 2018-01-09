@@ -36,7 +36,6 @@
 
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=popular" class="nav-tab <?php echo $_GET['mode'] == 'popular' || ( $_GET['mode'] == '' && !$_GET['search'] ) ? 'nav-tab-active' : ''; ?>" alt="<?php _e('25 most popular photos on Unsplash', 'wp-splashing-images'); ?>"><span style="color: green;">&#8599; </span><?php _e('Popular', 'wp-splashing-images'); ?></a>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=latest" class="nav-tab <?php echo $_GET['mode'] == 'latest' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows the 25 last added images', 'wp-splashing-images'); ?>"><?php _e('&#128349; Last added', 'wp-splashing-images'); ?></a>
-		<a href="/wp-admin/upload.php?page=wp-splashing&mode=random" class="nav-tab <?php echo $_GET['mode'] == 'random' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows 25 random images', 'wp-splashing-images'); ?>"><span style="color: gold;">&#9786; </span><?php _e('Surprise me :)', 'wp-splashing-images'); ?></a>
 		<?php if($this->unsplash->isUnsplashUser()) { ?>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=liked" class="nav-tab <?php echo $_GET['mode'] == 'liked' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Shows the images you like on unsplash.com', 'wp-splashing-images'); ?>"><span style="color: red;">&hearts; </span><?php _e('Photos you liked', 'wp-splashing-images'); ?></a>
 		<a href="/wp-admin/upload.php?page=wp-splashing&mode=mine" class="nav-tab <?php echo $_GET['mode'] == 'mine' ? 'nav-tab-active' : ''; ?>" alt="<?php _e('Show the photos you added to unsplasho.com', 'wp-splashing-images'); ?>"><span style="color: gold;">&#128100; </span><?php _e('Your photos', 'wp-splashing-images'); ?></a>
@@ -54,8 +53,6 @@
 					if(isset($_GET['search'])) {
 						$data = $this->unsplash->search($_GET['search'], $_GET['paged']);
 						$images = $data['results'];
-					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'random') {
-                        $images = $this->unsplash->getRandom(25);
 					} elseif(isset($_GET['mode']) && $_GET['mode'] == 'latest') {
                         $images = $this->unsplash->getLatest(25);
                     } elseif(isset($_GET['mode']) && $_GET['mode'] == 'popular') {
