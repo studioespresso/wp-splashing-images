@@ -4,7 +4,7 @@ Donate link: http://studioespresso.co
 Tags: images, content, media
 Requires at least: 4.0
 Tested up to: 4.9.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ Note: this plugin is not affiliated with unsplash.com.
 2. You'll see the latest curated images, your can get the latest, most popular or random images. And you can search for a specific subject. When you've found the perfect image, simply click it to add it to the media library
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed 2 security issues
 
 = 2.1 =
 * Updated unsplash library and use the new download function
