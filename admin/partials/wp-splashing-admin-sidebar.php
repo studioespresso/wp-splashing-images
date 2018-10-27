@@ -6,7 +6,7 @@
 
                 <form id="splashing-search" method="get" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <label class="screen-reader-text" for="post-search-input">Search Posts:</label>
-                    <input type="search" id="post-search-input-splashing" name="search" value="<?php echo esc_attr($_GET['search']); ?>" placeholder="<?php _e('Search unsplash.com', 'wp-splashing-images'); ?>">
+                    <input type="search" id="post-search-input-splashing" name="search" value="<?php echo esc_attr(isset($_GET['search'])); ?>" placeholder="<?php _e('Search unsplash.com', 'wp-splashing-images'); ?>">
                     <input type="hidden" name="action" value="wp_splashing_search">
                     <input type="hidden" name="paged" value="1">
                     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('wp_splashing_nonce'); ?>">

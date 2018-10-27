@@ -18,7 +18,7 @@
 		<?php _e('Splashing Images', 'wp-splashing-images')?>
 		<span style="filter: grayscale(100%);">&#128247; </span>
 	</h1>
-		<?php if($_GET['session']) {
+		<?php if(isset($_GET['session'])) {
 			$data = unserialize(base64_decode($_GET['session']), ['allowed_classes' => false]);
 			$this->unsplash->saveTokens($data['token']);
 			$user = $this->unsplash->getUser(); ?>

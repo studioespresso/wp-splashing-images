@@ -85,7 +85,7 @@ class Wp_Splashing_Admin {
     }
 
     public function wp_splashing_settings_page() {
-        if($_GET['disconnect']) {
+        if(isset($_GET['disconnect'])) {
             update_option('splashing_access_token', null);
         }
         if (version_compare(phpversion(), "5.5.0", ">=")) {
