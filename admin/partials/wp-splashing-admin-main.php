@@ -19,8 +19,8 @@
 		<span style="filter: grayscale(100%);">&#128247; </span>
 	</h1>
 		<?php if(isset($_GET['session'])) {
-			$data = unserialize(base64_decode($_GET['session']), ['allowed_classes' => false]);
-			$this->unsplash->saveTokens($data['token']);
+			$data = base64_decode($_GET['session']);
+			$this->unsplash->saveTokens($data);
 			$user = $this->unsplash->getUser(); ?>
 			<div class="notice inline notice-info notice-alt">
 				<p>
