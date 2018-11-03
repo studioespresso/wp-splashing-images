@@ -67,7 +67,7 @@
 					} else {
 						$images = $this->unsplash->getLastFeatured(24);
 					}
-					if($images != false) {
+					if(isset($images) && $images != false) {
 						echo '<div id="splashing-container">';
 						foreach($images as $image) {
 							$thumb = $image->urls['thumb'];
