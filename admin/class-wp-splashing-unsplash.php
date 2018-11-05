@@ -56,7 +56,8 @@ class Wp_Splashing_Unsplash
     public function setup()
     {
         return Crew\Unsplash\HttpClient::init(array(
-            'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4'
+            'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4',
+	        'utmSource' => 'WP Splashing Images'
         ));
     }
 
@@ -64,7 +65,8 @@ class Wp_Splashing_Unsplash
     {
         return Crew\Unsplash\HttpClient::init(
             array(
-            'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4',
+                'applicationId' => '7f3b78cd15141810237aaa5e7242e8fc4df9ba72a99fbd51612554ea72cc60e4',
+                'utmSource' => 'WP Splashing Images'
             ),
             array(
                 'access_token' => $this->getAccessToken(),
@@ -81,7 +83,7 @@ class Wp_Splashing_Unsplash
 
     public function saveTokens($session)
     {
-        update_option('splashing_access_token', $session->getToken());
+        update_option('splashing_access_token', $session);
     }
 
     public function isUnsplashUser()
